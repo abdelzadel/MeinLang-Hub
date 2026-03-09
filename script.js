@@ -1,15 +1,24 @@
+const backButton = document.getElementById("backButton");
+const stepLabel = document.getElementById("stepLabel");
+const viewTitle = document.getElementById("viewTitle");
+const pathText = document.getElementById("pathText");
+const searchWrap = document.getElementById("searchWrap");
 const searchInput = document.getElementById("searchInput");
 const cardGrid = document.getElementById("cardGrid");
-const cardsPlaceholder = document.getElementById("cardsPlaceholder");
-const stepLabel = document.getElementById("stepLabel");
-const stepTitle = document.getElementById("stepTitle");
-const stepHint = document.getElementById("stepHint");
-const backButton = document.getElementById("backButton");
+const listPlaceholder = document.getElementById("listPlaceholder");
+const listView = document.getElementById("listView");
+const contentView = document.getElementById("contentView");
+const contentMeta = document.getElementById("contentMeta");
 const contentArea = document.getElementById("contentArea");
+const errorMessage = document.getElementById("errorMessage");
 
-const selectedLanguage = document.getElementById("selectedLanguage");
-const selectedSubfolder = document.getElementById("selectedSubfolder");
-const selectedFile = document.getElementById("selectedFile");
+const ROOT_FOLDER = "texts";
+const VIEW = {
+  LANGUAGES: "languages",
+  SUBFOLDERS: "subfolders",
+  FILES: "files",
+  CONTENT: "content",
+};
 
 const LANGUAGE_FLAGS = {
   english: "🇬🇧",
@@ -24,183 +33,254 @@ const LANGUAGE_FLAGS = {
   turkish: "🇹🇷",
 };
 
-const STEP = {
-  language: "language",
-  subfolder: "subfolder",
-  text: "text",
+const state = {
+  view: VIEW.LANGUAGES,
+  language: "",
+  subfolder: "",
+  file: "",
 };
 
-let textIndex = {};
-let currentStep = STEP.language;
-let languageValue = "";
-let subfolderValue = "";
-let fileValue = "";
+let currentCards = [];
+let onCardSelect = null;
+const directoryCache = new Map();
 
-window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("DOMContentLoaded", () => {
+  renderLanguages();
+});
 
-async function init() {
-  stepHint.textContent = "Loading text index...";
+async function renderLanguages() {
+  state.view = VIEW.LANGUAGES;
+  state.language = "";
+  state.subfolder = "";
+  state.file = "";
+
+  setHeader("Languages", "Select a language", `/${ROOT_FOLDER}`);
+  toggleBackButton();
+  showListMode();
+  clearError();
 
   try {
-    const response = await fetch("texts/index.json");
-    if (!response.ok) {
-      throw new Error(`Failed to load index (HTTP ${response.status})`);
-    }
+    const entries = await readDirectory([ROOT_FOLDER]);
+    const languages = entries.filter((entry) => entry.isDirectory).map((entry) => entry.name).sort();
 
-    textIndex = await response.json();
-    renderCurrentStep();
+    currentCards = languages.map((language) => ({
+      key: language,
+      search: language.toLowerCase(),
+      main: `${getLanguageFlag(language)} ${formatLabel(language)}`,
+      sub: "Open language folder",
+      active: false,
+    }));
+
+    onCardSelect = (item) => {
+      renderSubfolders(item.key);
+    };
+
+    renderCards();
   } catch (error) {
-    console.error(error);
-    showPlaceholder("Could not load texts/index.json.");
-    stepHint.textContent = "Make sure the site runs through a static server.";
-    contentArea.textContent = "Unable to load index data.";
+    handleError(error, "Could not load the languages folder.");
   }
 }
 
-function renderCurrentStep() {
-  searchInput.value = "";
+async function renderSubfolders(language) {
+  state.view = VIEW.SUBFOLDERS;
+  state.language = language;
+  state.subfolder = "";
+  state.file = "";
 
-  if (currentStep === STEP.language) {
-    renderLanguageStep();
-  } else if (currentStep === STEP.subfolder) {
-    renderSubfolderStep();
-  } else {
-    renderTextStep();
+  setHeader("Subfolders", `Select a subfolder in ${formatLabel(language)}`, `/${ROOT_FOLDER}/${language}`);
+  toggleBackButton();
+  showListMode();
+  clearError();
+
+  try {
+    const entries = await readDirectory([ROOT_FOLDER, language]);
+    const subfolders = entries.filter((entry) => entry.isDirectory).map((entry) => entry.name).sort();
+
+    currentCards = subfolders.map((subfolder) => ({
+      key: subfolder,
+      search: subfolder.toLowerCase(),
+      main: `📁 ${formatLabel(subfolder)}`,
+      sub: "Open subfolder",
+      active: false,
+    }));
+
+    onCardSelect = (item) => {
+      renderFiles(language, item.key);
+    };
+
+    renderCards();
+  } catch (error) {
+    handleError(error, `Could not load subfolders for ${language}.`);
   }
-
-  updateBackButton();
 }
 
-function renderLanguageStep() {
-  stepLabel.textContent = "Step 1 of 3";
-  stepTitle.textContent = "Select a language";
-  stepHint.textContent = "Choose a language card to continue.";
+async function renderFiles(language, subfolder) {
+  state.view = VIEW.FILES;
+  state.language = language;
+  state.subfolder = subfolder;
+  state.file = "";
 
-  const languages = Object.keys(textIndex).sort();
+  setHeader("Files", `Select a text in ${formatLabel(subfolder)}`, `/${ROOT_FOLDER}/${language}/${subfolder}`);
+  toggleBackButton();
+  showListMode();
+  clearError();
 
-  renderCards(
-    languages,
-    (language) => {
-      const totalTexts = countTextsByLanguage(language);
-      return {
-        key: language,
-        main: `${getLanguageFlag(language)} ${language}`,
-        sub: `${totalTexts} text${totalTexts === 1 ? "" : "s"}`,
-        active: language === languageValue,
-      };
-    },
-    (language) => {
-      languageValue = language;
-      subfolderValue = "";
-      fileValue = "";
+  try {
+    const entries = await readDirectory([ROOT_FOLDER, language, subfolder]);
+    const files = entries
+      .filter((entry) => !entry.isDirectory && entry.name.toLowerCase().endsWith(".txt"))
+      .map((entry) => entry.name)
+      .sort();
 
-      selectedLanguage.textContent = language;
-      selectedSubfolder.textContent = "None";
-      selectedFile.textContent = "None";
-      contentArea.textContent = "Select a text card in step 3 to read content here.";
-
-      currentStep = STEP.subfolder;
-      renderCurrentStep();
-    }
-  );
-}
-
-function renderSubfolderStep() {
-  stepLabel.textContent = "Step 2 of 3";
-  stepTitle.textContent = `Select a category in ${languageValue}`;
-  stepHint.textContent = "Choose a category card to see text titles.";
-
-  const subfolders = Object.keys(textIndex[languageValue] || {}).sort();
-
-  renderCards(
-    subfolders,
-    (subfolder) => {
-      const totalTexts = (textIndex[languageValue][subfolder] || []).length;
-      return {
-        key: subfolder,
-        main: `📁 ${subfolder}`,
-        sub: `${totalTexts} file${totalTexts === 1 ? "" : "s"}`,
-        active: subfolder === subfolderValue,
-      };
-    },
-    (subfolder) => {
-      subfolderValue = subfolder;
-      fileValue = "";
-
-      selectedSubfolder.textContent = subfolder;
-      selectedFile.textContent = "None";
-      contentArea.textContent = "Select a text card in step 3 to read content here.";
-
-      currentStep = STEP.text;
-      renderCurrentStep();
-    }
-  );
-}
-
-function renderTextStep() {
-  stepLabel.textContent = "Step 3 of 3";
-  stepTitle.textContent = `Texts in ${subfolderValue}`;
-  stepHint.textContent = "Pick a text card to load and read the content.";
-
-  const files = (textIndex[languageValue]?.[subfolderValue] || []).filter((name) =>
-    name.toLowerCase().endsWith(".txt")
-  );
-
-  renderCards(
-    files,
-    (fileName) => ({
+    currentCards = files.map((fileName) => ({
       key: fileName,
+      search: fileName.toLowerCase(),
       main: `📄 ${fileName}`,
       sub: "Open text",
-      active: fileName === fileValue,
-    }),
-    (fileName) => {
-      loadTextFile(fileName);
-    }
-  );
+      active: fileName === state.file,
+    }));
+
+    onCardSelect = (item) => {
+      renderContent(language, subfolder, item.key);
+    };
+
+    renderCards();
+  } catch (error) {
+    handleError(error, `Could not load files for ${subfolder}.`);
+  }
 }
 
-function renderCards(items, mapper, onCardClick) {
+async function renderContent(language, subfolder, fileName) {
+  state.view = VIEW.CONTENT;
+  state.language = language;
+  state.subfolder = subfolder;
+  state.file = fileName;
+
+  setHeader("Reader", fileName, `/${ROOT_FOLDER}/${language}/${subfolder}/${fileName}`);
+  toggleBackButton();
+  showContentMode();
+  clearError();
+
+  const filePath = buildFilePath([ROOT_FOLDER, language, subfolder, fileName]);
+
+  contentMeta.textContent = `${formatLabel(language)} / ${formatLabel(subfolder)} / ${fileName}`;
+  contentArea.textContent = "Loading text...";
+
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const text = await response.text();
+    contentArea.textContent = text || "This text file is empty.";
+  } catch (error) {
+    handleError(error, `Could not load ${fileName}.`);
+    contentArea.textContent = `Unable to read: ${decodeURIComponent(filePath)}`;
+  }
+}
+
+async function readDirectory(parts) {
+  const dirPath = buildDirectoryPath(parts);
+
+  if (directoryCache.has(dirPath)) {
+    return directoryCache.get(dirPath);
+  }
+
+  const response = await fetch(dirPath);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${dirPath} (${response.status})`);
+  }
+
+  const html = await response.text();
+  const entries = parseDirectoryListing(html);
+  directoryCache.set(dirPath, entries);
+  return entries;
+}
+
+function parseDirectoryListing(html) {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const links = Array.from(doc.querySelectorAll("a[href]"));
+  const unique = new Set();
+  const entries = [];
+
+  links.forEach((link) => {
+    let href = link.getAttribute("href") || "";
+    href = href.split("?")[0].split("#")[0].trim();
+
+    if (!href || href === "/" || href === "./" || href === ".." || href === "../") {
+      return;
+    }
+
+    if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("//")) {
+      return;
+    }
+
+    let decoded = href;
+    try {
+      decoded = decodeURIComponent(href);
+    } catch (_) {
+      decoded = href;
+    }
+
+    const isDirectory = decoded.endsWith("/");
+    const name = decoded.replace(/\/$/, "");
+
+    if (!name || name === "." || name === ".." || name.startsWith(".")) {
+      return;
+    }
+
+    const key = `${name}::${isDirectory}`;
+    if (unique.has(key)) {
+      return;
+    }
+
+    unique.add(key);
+    entries.push({ name, isDirectory });
+  });
+
+  return entries;
+}
+
+function renderCards() {
   cardGrid.innerHTML = "";
 
   const query = searchInput.value.trim().toLowerCase();
-  const visibleItems = items.filter((item) => item.toLowerCase().includes(query));
+  const visibleCards = currentCards.filter((card) => card.search.includes(query));
 
-  if (items.length === 0) {
-    showPlaceholder("This step has no items.");
+  if (!currentCards.length) {
+    showPlaceholder("This folder is empty.");
     return;
   }
 
-  if (visibleItems.length === 0) {
-    showPlaceholder("No results for your search.");
+  if (!visibleCards.length) {
+    showPlaceholder("No matching results.");
     return;
   }
 
-  cardsPlaceholder.hidden = true;
+  listPlaceholder.hidden = true;
 
-  visibleItems.forEach((item) => {
-    const view = mapper(item);
-
+  visibleCards.forEach((card) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "card-item";
     button.setAttribute("role", "listitem");
 
-    if (view.active) {
+    if (card.active) {
       button.classList.add("active");
     }
 
     const main = document.createElement("span");
     main.className = "card-main";
-    main.textContent = view.main;
+    main.textContent = card.main;
 
     const sub = document.createElement("span");
     sub.className = "card-sub";
-    sub.textContent = view.sub;
+    sub.textContent = card.sub;
 
     button.appendChild(main);
     button.appendChild(sub);
-    button.addEventListener("click", () => onCardClick(view.key));
+    button.addEventListener("click", () => onCardSelect(card));
 
     cardGrid.appendChild(button);
   });
@@ -208,70 +288,82 @@ function renderCards(items, mapper, onCardClick) {
 
 function showPlaceholder(message) {
   cardGrid.innerHTML = "";
-  cardsPlaceholder.textContent = message;
-  cardsPlaceholder.hidden = false;
+  listPlaceholder.textContent = message;
+  listPlaceholder.hidden = false;
 }
 
-async function loadTextFile(fileName) {
-  fileValue = fileName;
-  selectedFile.textContent = fileName;
-  contentArea.textContent = "Loading text...";
+function setHeader(step, title, path) {
+  stepLabel.textContent = step;
+  viewTitle.textContent = title;
+  pathText.textContent = `Path: ${path}`;
+}
 
-  renderTextStep();
+function showListMode() {
+  searchWrap.hidden = false;
+  listView.hidden = false;
+  contentView.hidden = true;
+  searchInput.value = "";
+}
 
-  const path = `texts/${encodeURIComponent(languageValue)}/${encodeURIComponent(subfolderValue)}/${encodeURIComponent(fileName)}`;
+function showContentMode() {
+  searchWrap.hidden = true;
+  listView.hidden = true;
+  contentView.hidden = false;
+}
 
-  try {
-    const response = await fetch(path);
-    if (!response.ok) {
-      throw new Error(`Failed to load file (HTTP ${response.status})`);
-    }
+function toggleBackButton() {
+  backButton.hidden = state.view === VIEW.LANGUAGES;
+}
 
-    const text = await response.text();
-    contentArea.textContent = text || "This text file is empty.";
-  } catch (error) {
-    console.error(error);
-    contentArea.textContent = `Could not load "${fileName}".\nExpected path: ${decodeURIComponent(path)}`;
-  }
+function handleError(error, message) {
+  console.error(error);
+  errorMessage.textContent = message;
+  errorMessage.hidden = false;
+}
+
+function clearError() {
+  errorMessage.hidden = true;
+  errorMessage.textContent = "";
+}
+
+function buildDirectoryPath(parts) {
+  const [root, ...rest] = parts;
+  const encodedRest = rest.map((part) => encodeURIComponent(part));
+  const joined = [root, ...encodedRest].join("/");
+  return `${joined}/`;
+}
+
+function buildFilePath(parts) {
+  const [root, ...rest] = parts;
+  const encodedRest = rest.map((part) => encodeURIComponent(part));
+  return [root, ...encodedRest].join("/");
+}
+
+function formatLabel(value) {
+  return value
+    .split("-")
+    .join(" ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 function getLanguageFlag(language) {
   return LANGUAGE_FLAGS[language.toLowerCase()] || "🌐";
 }
 
-function countTextsByLanguage(language) {
-  const subfolders = Object.values(textIndex[language] || {});
-  return subfolders.reduce((total, files) => total + files.length, 0);
-}
-
-function updateBackButton() {
-  backButton.hidden = currentStep === STEP.language;
-}
-
 backButton.addEventListener("click", () => {
-  if (currentStep === STEP.subfolder) {
-    currentStep = STEP.language;
-    subfolderValue = "";
-    fileValue = "";
-    selectedSubfolder.textContent = "None";
-    selectedFile.textContent = "None";
-    contentArea.textContent = "Select a text card in step 3 to read content here.";
-  } else if (currentStep === STEP.text) {
-    currentStep = STEP.subfolder;
-    fileValue = "";
-    selectedFile.textContent = "None";
-    contentArea.textContent = "Select a text card in step 3 to read content here.";
+  if (state.view === VIEW.SUBFOLDERS) {
+    renderLanguages();
+  } else if (state.view === VIEW.FILES) {
+    renderSubfolders(state.language);
+  } else if (state.view === VIEW.CONTENT) {
+    renderFiles(state.language, state.subfolder);
   }
-
-  renderCurrentStep();
 });
 
 searchInput.addEventListener("input", () => {
-  if (currentStep === STEP.language) {
-    renderLanguageStep();
-  } else if (currentStep === STEP.subfolder) {
-    renderSubfolderStep();
-  } else {
-    renderTextStep();
+  if (state.view === VIEW.CONTENT) {
+    return;
   }
+
+  renderCards();
 });
