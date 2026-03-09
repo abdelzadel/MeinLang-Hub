@@ -28,7 +28,7 @@ const importCancelButton = document.getElementById("importCancelButton");
 const importCloseButton = document.getElementById("importCloseButton");
 
 const ROOT_FOLDER = "texts";
-const STATIC_INDEX_FILE = `${ROOT_FOLDER}/_index.json`;
+const STATIC_INDEX_FILE = `${ROOT_FOLDER}/catalog.json`;
 const VIEW = {
   LANGUAGES: "languages",
   SUBFOLDERS: "subfolders",
