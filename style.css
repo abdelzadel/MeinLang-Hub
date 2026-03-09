@@ -16,7 +16,7 @@
 body {
   margin: 0;
   padding: 1.25rem 0.9rem 2rem;
-  background: linear-gradient(180deg, #f9fbfd 0%, #eef2f7 100%);
+  /* background: linear-gradient(180deg, #f9fbfd 0%, #eef2f7 100%); */
   color: var(--text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
