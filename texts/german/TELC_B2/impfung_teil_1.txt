@@ -1,0 +1,83 @@
+THEMA: Impfung
+LEVEL: TELC_B2
+QUELLE: impfung
+
+TEIL 1 TEXT 1
+Immer wieder überspringen Krankheitserreger
+aus dem Tierreich die Artengrenze und werden
+auch dem Menschen gefährlich. Allerdings galt
+die Gruppe Adenoviren bislang als artgebunden:
+Manche verursachen beim Menschen
+verschiedene Probleme, von Schnupfen über
+Durchfall bis hin zu Lungenentzündung. Andere
+machen bestimmten Tierarten zu schaffen. Aber
+noch nie wurde bekannt, dass solche Viren von
+einer Spezies auf eine andere wechseln. Nun
+berichten Forscher erstmals von einem solchen
+Fall: Demnach erlitten in einem kalifornischen
+Primatenzentrum 23 von insgesamt 65 Roten
+Springaffen Entzündungen der Atemwege oder
+der Leber. Nur vier der infizierten Tiere überlebten.
+Als Ursache identifizierten die Mediziner das bislang
+unbekannte Adenovirus TMAdV. Dieser Erreger
+kann auch Menschen befallen: Ein Mitarbeiter des
+Primatenzentrums, der viel Kontakt zu den erkrankten
+Affen hatte, bekam Fieber und Husten. Zudem
+steckte er ein Mitglied seiner Familie an.
+Die Experten empfehlen, Adenoviren künftig
+sorgfältiger zu beobachten, um rechtzeitig auf
+mögliche Gefahren für den Menschen aufmerksam
+zu werden.
+
+TEIL 1 TEXT 2
+Virologen ist es gelungen, den Vogelgrippe-Erreger hochansteckend zu machen. Nun empfiehlt das
+US-Gesundheitsministerium Fachzeitschriften, die entsprechenden Daten nicht zu veröffentlichen, weil
+Terroristen mit ihrer Hilfe Biowaffen basteln könnten. Nur die Ergebnisse der Versuche sollen erscheinen, nicht
+aber Einzelheiten über die Arbeitsweise der Forscher oder Details über die Beschaffenheit der Viren.
+Das Ministerium stützt seine Entscheidung auf die Empfehlungen unabhängigen Expertengremius NSABB. Es
+ist das erste Mal, dass das Gremium eine solche Empfehlung ausgesprochen hat. Ihr vorausgegangen war eine
+wochenlange Diskussion darüber, wie Forscher mit heiklen Erkenntnissen umgehen sollen: Alles offenlegen
+oder brisante Versuche unterlassen und erst recht nicht veröffentlichen? Für die betroffenen Forscher steht die
+Freiheit der Forschung und der Presse auf dem Spiel. Unklar ist noch, inwieweit sie und die Fachjournale den
+Empfehlungen des NSABB folgen.
+Es ist für die öffentliche Gesundheit notwendig, dass alle Details jeder wissenschaftlichen Analyse zu
+Influenzaviren Forschern zugänglich sind.
+
+TEIL 1 TEXT 3
+Ein neuer Impfstoff gegen Grippe könnte in Zukunft sämtliche Varianten der Krankheit abdecken und damit die
+jährliche Spritze überflüssig machen. Der Stoff bekämpft die stets gleichen Proteine im Inneren der Grippeviren
+statt wie derzeitige Substanzen die sich ständig ändernden an der Außenhülle. Ein Forscherteam der
+Universität Oxford hat den Impfstoff erstmals an Menschen getestet. Weitere Studien sollen folgen. Es kann
+Jahre dauern, bis die Substanz eine Zulassung bekommt. Doch die Forscher sind optimistisch. Derzeit müssen
+jedes Jahr neue Impfstoffe für die Grippesaison entwickelt werden, weil sich Virenhülle so schnell wandelt. Da
+der neue Stoff an den stabileren inneren Proteinen der Viren ansetze, könnte das in Zukunft überflüssig werden.
+Es könnte eine Routine Impfung wie gegen andere Krankheiten wie zum Beispiel Tetanus entwickelt werden.
+Bei der bisherigen Impfung gehe es vor allem darum, den Körper zur Produktion von Antikörpern gegen die
+Grippeviren zu aktivieren. Der neue Stoff hingegen rege die so genannten T-Zellen an, die ebenfalls ein
+wichtiger Teil des Immunsystems sind.
+
+TEIL 1 TEXT 4
+Breitet sich die Grippe in einer Schule aus, sind es besonders geschlechtshomogene Gruppen,
+in denen das Virus schnell neue Opfer findet. Denn wie US-Mediziner herausgefunden haben,
+stecken Buben vor allem Buben und Mädchen in erster Linie Mädchen an. Infektionen.
+innerhalb eines Geschlechts passieren dreimal häufiger als über die Geschlechtergrenzen
+hinweg Innerhalb derselben Schulklasse sind Übertragungen fünfmal häufiger
+als zu einer Parallelklasse und 25 Mal häufiger als zu den Schülern anderer Schulstufen,
+fanden die Forscher
+bei Untersuchungen an einer Volksschule heraus. Ein weiterer interessanter Befund:
+Ob ein Kind neben einem bereits infizierten Schulkollegen saß oder nicht, machte keinen
+Unterschied bei der Ausbreitung der Influenza.
+
+TEIL 1 TEXT 5
+Da sich Influenzaviren immer wieder verändern, unternimmt die
+Weltgesundheitsorganisation WHO jedes Jahr große Anstrengungen,
+um die gerade umlaufenden Grippeviren zu identifizieren, anhand
+derer Pharmaunternehmen dann gezielt Impfstoffe herstellen können.
+Die Entwicklung solcher Impfstoffe nimmt allerdings bis zu neun
+Monate in Anspruch. Daher kann es vorkommen, dass sich gerade
+aktive Influenza-Viren von denen, die für die Herstellung des Impfstoffes
+verwendet wurden, etwas unterscheiden. Prinzipiell ist also jedes Jahr
+eine erneute Impfung notwendig. Eine neue Studie liefert Anhaltspunkte
+dafür, dass die tatsächliche Wirksamkeit von Grippeimpfstoffen weit
+niedriger sein soll als bisher angenommen. Denn in der Studie zeigte sich,
+dass gängige Grippeimpfstoffe nur 59 von 100 Grippefällen verhindern konnten.

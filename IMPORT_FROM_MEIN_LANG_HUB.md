@@ -8,12 +8,11 @@ Open Mein Lang Hub with these query params:
 
 - `importApiEndpoint` (required): API endpoint that receives multipart uploads
 - `importAuthRequired` (optional): `true` or `false` (default: `true`)
-- `importTag` (optional): comma-separated tags override
 
 Example:
 
 ```text
-https://abdelzadel.github.io/MeinLang-Hub/?importApiEndpoint=https%3A%2F%2Fyour-app.com%2Fapp%2Fapi%2Fexternal-import%2Ftexts&importAuthRequired=true&importTag=A1,News
+https://abdelzadel.github.io/MeinLang-Hub/?importApiEndpoint=https%3A%2F%2Fyour-app.com%2Fapp%2Fapi%2Fexternal-import%2Ftexts&importAuthRequired=true
 ```
 
 If `importApiEndpoint` is missing, subfolder import buttons are hidden/disabled.
@@ -25,6 +24,7 @@ If `importApiEndpoint` is missing, subfolder import buttons are hidden/disabled.
 3. On each subfolder card, user clicks **Import texts**.
 4. A popup appears with:
    - Email + password fields (if `importAuthRequired=true`)
+   - Tag field (prefilled with selected subfolder name, editable)
    - Terms and conditions checkbox (required)
    - Submit button
 5. On submit, a loader is shown while uploading.

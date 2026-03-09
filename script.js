@@ -19,6 +19,7 @@ const importEndpointHint = document.getElementById("importEndpointHint");
 const importAuthFields = document.getElementById("importAuthFields");
 const importEmail = document.getElementById("importEmail");
 const importPassword = document.getElementById("importPassword");
+const importTagInput = document.getElementById("importTag");
 const importTerms = document.getElementById("importTerms");
 const importStatus = document.getElementById("importStatus");
 const importLoader = document.getElementById("importLoader");
@@ -589,6 +590,7 @@ function openImportModal(language, subfolder) {
 
   activeImportTarget = { language, subfolder };
   importTargetLabel.textContent = `Import files from: ${formatLabel(language)} / ${formatLabel(subfolder)}`;
+  importTagInput.value = buildDefaultImportTag(subfolder);
 
   importTerms.checked = false;
   importStatus.hidden = true;
@@ -653,6 +655,7 @@ async function submitImportFromModal(event) {
 
   try {
     const { language, subfolder } = activeImportTarget;
+    const tagValue = String(importTagInput.value || "").trim() || buildDefaultImportTag(subfolder);
     const entries = await readDirectory([ROOT_FOLDER, language, subfolder]);
     const fileNames = entries
       .filter((entry) => !entry.isDirectory && entry.name.toLowerCase().endsWith(".txt"))
@@ -672,7 +675,7 @@ async function submitImportFromModal(event) {
 
     formData.append("language", formatLabel(language));
     formData.append("subfolder", subfolder);
-    formData.append("tag", buildImportTag(language, subfolder));
+    formData.append("tag", tagValue);
 
     let appendedCount = 0;
 
@@ -744,26 +747,15 @@ function getImportConfigFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const endpointRaw = params.get("importApiEndpoint") || params.get("apiEndpoint") || "";
   const authRaw = params.get("importAuthRequired") ?? params.get("authRequired");
-  const tagRaw = params.get("importTag") || params.get("tag") || "";
 
   return {
     endpoint: normalizeEndpoint(endpointRaw),
     authRequired: parseBooleanParam(authRaw, true),
-    tag: normalizeTag(tagRaw),
   };
 }
 
-function buildImportTag(language, subfolder) {
-  if (importConfig.tag) {
-    return importConfig.tag;
-  }
-
-  const subfolderParts = String(subfolder || "")
-    .split("/")
-    .map((part) => formatLabel(part))
-    .filter(Boolean);
-
-  return [formatLabel(language), ...subfolderParts].join(",");
+function buildDefaultImportTag(subfolder) {
+  return String(subfolder || "").trim();
 }
 
 function parseBooleanParam(value, defaultValue) {
@@ -794,15 +786,6 @@ function normalizeEndpoint(value) {
   } catch {
     return "";
   }
-}
-
-function normalizeTag(value) {
-  return String(value || "")
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter(Boolean)
-    .slice(0, 8)
-    .join(",");
 }
 
 function decodeBase64Utf8(base64Text) {
