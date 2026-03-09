@@ -12,6 +12,20 @@ const contentMeta = document.getElementById("contentMeta");
 const contentArea = document.getElementById("contentArea");
 const errorMessage = document.getElementById("errorMessage");
 
+const importModal = document.getElementById("importModal");
+const importForm = document.getElementById("importForm");
+const importTargetLabel = document.getElementById("importTargetLabel");
+const importEndpointHint = document.getElementById("importEndpointHint");
+const importAuthFields = document.getElementById("importAuthFields");
+const importEmail = document.getElementById("importEmail");
+const importPassword = document.getElementById("importPassword");
+const importTerms = document.getElementById("importTerms");
+const importStatus = document.getElementById("importStatus");
+const importLoader = document.getElementById("importLoader");
+const importSubmitButton = document.getElementById("importSubmitButton");
+const importCancelButton = document.getElementById("importCancelButton");
+const importCloseButton = document.getElementById("importCloseButton");
+
 const ROOT_FOLDER = "texts";
 const VIEW = {
   LANGUAGES: "languages",
@@ -42,15 +56,18 @@ const state = {
 
 const BRANCH_FALLBACKS = ["main", "master"];
 const githubContext = detectGitHubPagesContext();
+const importConfig = getImportConfigFromUrl();
 
 let githubBranch = "main";
 let currentCards = [];
 let onCardSelect = null;
+let activeImportTarget = { language: "", subfolder: "" };
 
 const directoryCache = new Map();
 const fileCache = new Map();
 
 window.addEventListener("DOMContentLoaded", async () => {
+  setupImportModal();
   await initializeSource();
   await restoreFromQueryParams();
 });
@@ -70,7 +87,7 @@ async function initializeSource() {
 async function restoreFromQueryParams() {
   const params = new URLSearchParams(window.location.search);
   const language = sanitizeQueryParam(params.get("language"));
-  const subfolder = sanitizeQueryParam(params.get("subfolder"));
+  const subfolder = sanitizeQueryParam(params.get("subfolder"), true);
   const file = sanitizeQueryParam(params.get("file"));
 
   await renderLanguages();
@@ -148,6 +165,7 @@ async function renderLanguages() {
       flagCode: getLanguageFlagCode(language),
       sub: "Open language folder",
       active: false,
+      secondaryAction: null,
     }));
 
     onCardSelect = (item) => {
@@ -176,12 +194,20 @@ async function renderSubfolders(language) {
     const entries = await readDirectory([ROOT_FOLDER, language]);
     const subfolders = entries.filter((entry) => entry.isDirectory).map((entry) => entry.name).sort();
 
+    const importEnabled = Boolean(importConfig.endpoint);
+
     currentCards = subfolders.map((subfolder) => ({
       key: subfolder,
       search: subfolder.toLowerCase(),
       main: `📁 ${formatLabel(subfolder)}`,
-      sub: "Open subfolder",
+      sub: importEnabled ? "Open subfolder or import its texts" : "Open subfolder",
       active: false,
+      secondaryAction: importEnabled
+        ? {
+            label: "Import texts",
+            onClick: () => openImportModal(language, subfolder),
+          }
+        : null,
     }));
 
     onCardSelect = (item) => {
@@ -219,6 +245,7 @@ async function renderFiles(language, subfolder) {
       main: `📄 ${fileName}`,
       sub: "Open text",
       active: fileName === state.file,
+      secondaryAction: null,
     }));
 
     onCardSelect = (item) => {
@@ -480,6 +507,262 @@ function parseDirectoryListing(html, directoryUrl) {
   return entries;
 }
 
+function setupImportModal() {
+  if (!importModal || !importForm) {
+    return;
+  }
+
+  if (importConfig.endpoint) {
+    importEndpointHint.textContent = `Endpoint: ${importConfig.endpoint}`;
+  } else {
+    importEndpointHint.textContent = "Import disabled: provide importApiEndpoint in URL params.";
+  }
+
+  importAuthFields.hidden = !importConfig.authRequired;
+  importEmail.required = importConfig.authRequired;
+  importPassword.required = importConfig.authRequired;
+
+  importCancelButton.addEventListener("click", closeImportModal);
+  importCloseButton.addEventListener("click", closeImportModal);
+  importModal.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target && target.getAttribute("data-modal-close") === "true") {
+      closeImportModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !importModal.hidden) {
+      closeImportModal();
+    }
+  });
+
+  importForm.addEventListener("submit", submitImportFromModal);
+}
+
+function openImportModal(language, subfolder) {
+  if (!importModal) {
+    return;
+  }
+
+  activeImportTarget = { language, subfolder };
+  importTargetLabel.textContent = `Import files from: ${formatLabel(language)} / ${formatLabel(subfolder)}`;
+
+  importTerms.checked = false;
+  importStatus.hidden = true;
+  importStatus.textContent = "";
+  importStatus.className = "import-status";
+  importLoader.hidden = true;
+
+  if (!importConfig.authRequired) {
+    importEmail.value = "";
+    importPassword.value = "";
+  }
+
+  importModal.hidden = false;
+
+  if (importConfig.authRequired) {
+    importEmail.focus();
+  } else {
+    importTerms.focus();
+  }
+}
+
+function closeImportModal() {
+  if (!importModal) {
+    return;
+  }
+
+  if (!importLoader.hidden) {
+    return;
+  }
+
+  importModal.hidden = true;
+}
+
+async function submitImportFromModal(event) {
+  event.preventDefault();
+
+  if (!importConfig.endpoint) {
+    setImportStatus("Import endpoint is missing in URL params.", "error");
+    return;
+  }
+
+  if (!activeImportTarget.language || !activeImportTarget.subfolder) {
+    setImportStatus("Choose a valid subfolder first.", "error");
+    return;
+  }
+
+  if (!importTerms.checked) {
+    setImportStatus("Accept terms and conditions before importing.", "error");
+    return;
+  }
+
+  const emailValue = importEmail.value.trim();
+  const passwordValue = importPassword.value;
+
+  if (importConfig.authRequired && (!emailValue || !passwordValue)) {
+    setImportStatus("Email and password are required for this import endpoint.", "error");
+    return;
+  }
+
+  setImportLoading(true);
+  setImportStatus("", "none");
+
+  try {
+    const { language, subfolder } = activeImportTarget;
+    const entries = await readDirectory([ROOT_FOLDER, language, subfolder]);
+    const fileNames = entries
+      .filter((entry) => !entry.isDirectory && entry.name.toLowerCase().endsWith(".txt"))
+      .map((entry) => entry.name)
+      .sort();
+
+    if (!fileNames.length) {
+      throw new Error("This subfolder has no .txt files to import.");
+    }
+
+    const formData = new FormData();
+
+    if (importConfig.authRequired) {
+      formData.append("email", emailValue);
+      formData.append("password", passwordValue);
+    }
+
+    formData.append("language", formatLabel(language));
+    formData.append("subfolder", subfolder);
+    formData.append("tag", buildImportTag(language, subfolder));
+
+    let appendedCount = 0;
+
+    for (const fileName of fileNames) {
+      const text = await readTextFile([ROOT_FOLDER, language, subfolder, fileName]);
+      if (!String(text || "").trim()) {
+        continue;
+      }
+
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      formData.append("files", blob, fileName);
+      appendedCount += 1;
+    }
+
+    if (!appendedCount) {
+      throw new Error("No readable .txt content found to upload.");
+    }
+
+    const response = await fetch(importConfig.endpoint, {
+      method: "POST",
+      body: formData,
+    });
+
+    let payload = null;
+    try {
+      payload = await response.json();
+    } catch {
+      payload = null;
+    }
+
+    if (!response.ok) {
+      throw new Error(payload?.error || `Import failed with HTTP ${response.status}.`);
+    }
+
+    const importedCount = Number(payload?.createdCount || appendedCount);
+    setImportStatus(`Import complete. ${importedCount} file(s) uploaded.`, "success");
+  } catch (error) {
+    setImportStatus(error.message || "Import failed.", "error");
+  } finally {
+    setImportLoading(false);
+  }
+}
+
+function setImportStatus(message, type = "none") {
+  if (!importStatus) {
+    return;
+  }
+
+  if (!message) {
+    importStatus.hidden = true;
+    importStatus.textContent = "";
+    importStatus.className = "import-status";
+    return;
+  }
+
+  importStatus.hidden = false;
+  importStatus.textContent = message;
+  importStatus.className = `import-status ${type === "success" ? "success" : "error"}`;
+}
+
+function setImportLoading(isLoading) {
+  importLoader.hidden = !isLoading;
+  importSubmitButton.disabled = isLoading;
+  importCancelButton.disabled = isLoading;
+  importCloseButton.disabled = isLoading;
+}
+
+function getImportConfigFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const endpointRaw = params.get("importApiEndpoint") || params.get("apiEndpoint") || "";
+  const authRaw = params.get("importAuthRequired") ?? params.get("authRequired");
+  const tagRaw = params.get("importTag") || params.get("tag") || "";
+
+  return {
+    endpoint: normalizeEndpoint(endpointRaw),
+    authRequired: parseBooleanParam(authRaw, true),
+    tag: normalizeTag(tagRaw),
+  };
+}
+
+function buildImportTag(language, subfolder) {
+  if (importConfig.tag) {
+    return importConfig.tag;
+  }
+
+  const subfolderParts = String(subfolder || "")
+    .split("/")
+    .map((part) => formatLabel(part))
+    .filter(Boolean);
+
+  return [formatLabel(language), ...subfolderParts].join(",");
+}
+
+function parseBooleanParam(value, defaultValue) {
+  if (value === null || value === undefined || value === "") {
+    return defaultValue;
+  }
+
+  const normalized = String(value).trim().toLowerCase();
+  if (["1", "true", "yes", "y", "required"].includes(normalized)) {
+    return true;
+  }
+
+  if (["0", "false", "no", "n", "off"].includes(normalized)) {
+    return false;
+  }
+
+  return defaultValue;
+}
+
+function normalizeEndpoint(value) {
+  const raw = String(value || "").trim();
+  if (!raw) {
+    return "";
+  }
+
+  try {
+    return new URL(raw, window.location.href).toString();
+  } catch {
+    return "";
+  }
+}
+
+function normalizeTag(value) {
+  return String(value || "")
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean)
+    .slice(0, 8)
+    .join(",");
+}
+
 function decodeBase64Utf8(base64Text) {
   const cleaned = base64Text.replace(/\n/g, "");
   const binary = atob(cleaned);
@@ -544,10 +827,13 @@ function renderCards() {
   listPlaceholder.hidden = true;
 
   visibleCards.forEach((card) => {
+    const shell = document.createElement("div");
+    shell.className = "card-shell";
+    shell.setAttribute("role", "listitem");
+
     const button = document.createElement("button");
     button.type = "button";
     button.className = "card-item";
-    button.setAttribute("role", "listitem");
 
     if (card.active) {
       button.classList.add("active");
@@ -575,7 +861,21 @@ function renderCards() {
     button.appendChild(sub);
     button.addEventListener("click", () => onCardSelect(card));
 
-    cardGrid.appendChild(button);
+    shell.appendChild(button);
+
+    if (card.secondaryAction) {
+      const secondaryButton = document.createElement("button");
+      secondaryButton.type = "button";
+      secondaryButton.className = "card-secondary";
+      secondaryButton.textContent = card.secondaryAction.label;
+      secondaryButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        card.secondaryAction.onClick();
+      });
+      shell.appendChild(secondaryButton);
+    }
+
+    cardGrid.appendChild(shell);
   });
 }
 
@@ -620,7 +920,11 @@ function clearError() {
 }
 
 function syncQueryParams() {
-  const params = new URLSearchParams();
+  const params = new URLSearchParams(window.location.search);
+
+  params.delete("language");
+  params.delete("subfolder");
+  params.delete("file");
 
   if (state.language) {
     params.set("language", state.language);
@@ -639,13 +943,27 @@ function syncQueryParams() {
   window.history.replaceState(null, "", nextUrl);
 }
 
-function sanitizeQueryParam(value) {
+function sanitizeQueryParam(value, allowSlash = false) {
   if (!value) {
     return "";
   }
 
   const cleaned = value.trim();
-  if (!cleaned || cleaned.includes("/") || cleaned.includes("\\")) {
+  if (!cleaned) {
+    return "";
+  }
+
+  const normalized = cleaned.replace(/\\/g, "/");
+
+  if (allowSlash) {
+    const compact = normalized.replace(/\/+/g, "/").replace(/^\/+|\/+$/g, "");
+    if (!compact || compact.includes("..")) {
+      return "";
+    }
+    return compact;
+  }
+
+  if (normalized.includes("/") || normalized.includes("..")) {
     return "";
   }
 
@@ -670,14 +988,16 @@ function buildRepoPath(parts) {
 }
 
 function formatLabel(value) {
-  return value
-    .split("-")
+  return String(value || "")
+    .split(/[\/_-]/)
     .join(" ")
+    .replace(/\s+/g, " ")
+    .trim()
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 function getLanguageFlagCode(language) {
-  return LANGUAGE_FLAGS[language.toLowerCase()] || "";
+  return LANGUAGE_FLAGS[String(language || "").toLowerCase()] || "";
 }
 
 backButton.addEventListener("click", () => {

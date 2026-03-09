@@ -50,6 +50,48 @@
       </section>
     </main>
 
+    <div id="importModal" class="modal-overlay" hidden>
+      <div class="modal-backdrop" data-modal-close="true"></div>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="importModalTitle">
+        <div class="modal-head">
+          <h3 id="importModalTitle">Import Texts</h3>
+          <button id="importCloseButton" type="button" class="modal-close" aria-label="Close import popup">
+            ×
+          </button>
+        </div>
+
+        <p id="importTargetLabel" class="modal-target"></p>
+        <p id="importEndpointHint" class="modal-endpoint"></p>
+
+        <form id="importForm" class="modal-form" novalidate>
+          <div id="importAuthFields" class="auth-fields">
+            <label for="importEmail">Email</label>
+            <input id="importEmail" type="email" autocomplete="email" />
+
+            <label for="importPassword">Password</label>
+            <input id="importPassword" type="password" autocomplete="current-password" />
+          </div>
+
+          <label class="terms-row" for="importTerms">
+            <input id="importTerms" type="checkbox" />
+            <span>I accept terms and conditions.</span>
+          </label>
+
+          <p id="importStatus" class="import-status" hidden></p>
+
+          <div id="importLoader" class="import-loader" hidden>
+            <span class="loader-spinner" aria-hidden="true"></span>
+            <span>Submitting files...</span>
+          </div>
+
+          <div class="modal-actions">
+            <button id="importCancelButton" type="button" class="secondary-button">Cancel</button>
+            <button id="importSubmitButton" type="submit" class="primary-button">Start import</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

@@ -7,6 +7,7 @@
   --primary: #275b9a;
   --primary-soft: #eaf2fc;
   --danger: #9f2f2f;
+  --success: #1f7a45;
 }
 
 * {
@@ -16,7 +17,6 @@
 body {
   margin: 0;
   padding: 1.25rem 0.9rem 2rem;
-  /* background: linear-gradient(180deg, #f9fbfd 0%, #eef2f7 100%); */
   color: var(--text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
@@ -57,7 +57,11 @@ body {
   margin-bottom: 0.4rem;
 }
 
-.back-button {
+.back-button,
+.primary-button,
+.secondary-button,
+.card-secondary,
+.modal-close {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
@@ -65,6 +69,16 @@ body {
   cursor: pointer;
   font: inherit;
   padding: 0.38rem 0.66rem;
+}
+
+.primary-button {
+  border-color: #1f5ea7;
+  background: #2b6cbf;
+  color: #fff;
+}
+
+.secondary-button {
+  background: #f8fafc;
 }
 
 .step-label {
@@ -97,7 +111,9 @@ label {
   font-size: 0.92rem;
 }
 
-input[type="search"] {
+input[type="search"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -115,12 +131,17 @@ input[type="search"] {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 0.65rem;
 }
 
 .card-grid:empty {
   display: none;
+}
+
+.card-shell {
+  display: grid;
+  gap: 0.45rem;
 }
 
 .card-item {
@@ -166,6 +187,11 @@ input[type="search"] {
   font-size: 0.86rem;
 }
 
+.card-secondary {
+  width: 100%;
+  font-size: 0.88rem;
+}
+
 .placeholder {
   margin: 0.3rem 0 0;
   color: var(--muted);
@@ -193,10 +219,137 @@ input[type="search"] {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 23, 35, 0.5);
+}
+
+.modal-card {
+  position: relative;
+  width: min(560px, calc(100% - 1.2rem));
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 20px 40px rgba(11, 17, 27, 0.2);
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.modal-head h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.modal-close {
+  line-height: 1;
+  padding: 0.3rem 0.55rem;
+  font-size: 1.1rem;
+}
+
+.modal-target,
+.modal-endpoint {
+  margin: 0.2rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.modal-endpoint {
+  word-break: break-all;
+}
+
+.modal-form {
+  margin-top: 0.85rem;
+}
+
+.auth-fields {
+  display: grid;
+  gap: 0.38rem;
+  margin-bottom: 0.72rem;
+}
+
+.terms-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0.25rem 0 0.75rem;
+  color: var(--text);
+}
+
+.terms-row input {
+  margin-top: 0.12rem;
+}
+
+.import-status {
+  margin: 0 0 0.72rem;
+  font-size: 0.92rem;
+}
+
+.import-status.success {
+  color: var(--success);
+}
+
+.import-status.error {
+  color: var(--danger);
+}
+
+.import-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.72rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.loader-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccd5e0;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 input[type="search"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
 .back-button:focus,
+.primary-button:focus,
+.secondary-button:focus,
 .card-item:focus,
-.content-area:focus {
+.card-secondary:focus,
+.content-area:focus,
+.modal-close:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
@@ -212,5 +365,13 @@ input[type="search"]:focus,
 
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .modal-actions button {
+    width: 100%;
   }
 }
