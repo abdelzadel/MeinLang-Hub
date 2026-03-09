@@ -98,35 +98,43 @@ async function restoreFromQueryParams() {
 
   try {
     const languages = await listDirectoryNames([ROOT_FOLDER]);
-    if (!languages.includes(language)) {
+    const resolvedLanguage = resolveValueFromList(language, languages);
+
+    if (!resolvedLanguage) {
+      await resetToMainPage();
       return;
     }
 
-    await renderSubfolders(language);
+    await renderSubfolders(resolvedLanguage);
 
     if (!subfolder) {
       return;
     }
 
-    const subfolders = await listDirectoryNames([ROOT_FOLDER, language]);
-    if (!subfolders.includes(subfolder)) {
+    const subfolders = await listDirectoryNames([ROOT_FOLDER, resolvedLanguage]);
+    const resolvedSubfolder = resolveValueFromList(subfolder, subfolders);
+
+    if (!resolvedSubfolder) {
       return;
     }
 
-    await renderFiles(language, subfolder);
+    await renderFiles(resolvedLanguage, resolvedSubfolder);
 
     if (!file) {
       return;
     }
 
-    const files = await listTextFileNames([ROOT_FOLDER, language, subfolder]);
-    if (!files.includes(file)) {
+    const files = await listTextFileNames([ROOT_FOLDER, resolvedLanguage, resolvedSubfolder]);
+    const resolvedFile = resolveValueFromList(file, files);
+
+    if (!resolvedFile) {
       return;
     }
 
-    await renderContent(language, subfolder, file);
+    await renderContent(resolvedLanguage, resolvedSubfolder, resolvedFile);
   } catch (error) {
     console.error("Could not restore selection from query params.", error);
+    await resetToMainPage();
   }
 }
 
@@ -140,6 +148,36 @@ async function listTextFileNames(parts) {
   return entries
     .filter((entry) => !entry.isDirectory && entry.name.toLowerCase().endsWith(".txt"))
     .map((entry) => entry.name);
+}
+
+async function resetToMainPage() {
+  state.language = "";
+  state.subfolder = "";
+  state.file = "";
+  syncQueryParams();
+  await renderLanguages();
+}
+
+function resolveValueFromList(rawValue, values) {
+  const target = String(rawValue || "").trim();
+  if (!target || !Array.isArray(values) || !values.length) {
+    return "";
+  }
+
+  const directMatch = values.find((value) => value === target);
+  if (directMatch) {
+    return directMatch;
+  }
+
+  const normalizedTarget = normalizeLookupToken(target);
+  return values.find((value) => normalizeLookupToken(value) === normalizedTarget) || "";
+}
+
+function normalizeLookupToken(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[ _-]+/g, "");
 }
 
 async function renderLanguages() {
