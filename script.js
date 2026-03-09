@@ -40,13 +40,32 @@ const state = {
   file: "",
 };
 
+const BRANCH_FALLBACKS = ["main", "master"];
+const githubContext = detectGitHubPagesContext();
+
+let githubBranch = "main";
 let currentCards = [];
 let onCardSelect = null;
-const directoryCache = new Map();
 
-window.addEventListener("DOMContentLoaded", () => {
+const directoryCache = new Map();
+const fileCache = new Map();
+
+window.addEventListener("DOMContentLoaded", async () => {
+  await initializeSource();
   renderLanguages();
 });
+
+async function initializeSource() {
+  if (!githubContext) {
+    return;
+  }
+
+  try {
+    githubBranch = await fetchDefaultBranch(githubContext.owner, githubContext.repo);
+  } catch (error) {
+    console.warn("Could not detect default branch. Falling back to main/master.", error);
+  }
+}
 
 async function renderLanguages() {
   state.view = VIEW.LANGUAGES;
@@ -161,43 +180,169 @@ async function renderContent(language, subfolder, fileName) {
   showContentMode();
   clearError();
 
-  const filePath = buildFilePath([ROOT_FOLDER, language, subfolder, fileName]);
-
   contentMeta.textContent = `${formatLabel(language)} / ${formatLabel(subfolder)} / ${fileName}`;
   contentArea.textContent = "Loading text...";
 
   try {
-    const response = await fetch(filePath);
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const text = await response.text();
+    const text = await readTextFile([ROOT_FOLDER, language, subfolder, fileName]);
     contentArea.textContent = text || "This text file is empty.";
   } catch (error) {
     handleError(error, `Could not load ${fileName}.`);
-    contentArea.textContent = `Unable to read: ${decodeURIComponent(filePath)}`;
+    const path = `/${ROOT_FOLDER}/${language}/${subfolder}/${fileName}`;
+    contentArea.textContent = `Unable to read: ${path}`;
   }
 }
 
 async function readDirectory(parts) {
+  if (githubContext) {
+    return readDirectoryFromGitHub(parts);
+  }
+
+  return readDirectoryFromHttpListing(parts);
+}
+
+async function readTextFile(parts) {
+  if (githubContext) {
+    return readTextFileFromGitHub(parts);
+  }
+
+  return readTextFileFromHttp(parts);
+}
+
+async function readDirectoryFromHttpListing(parts) {
   const dirPath = buildDirectoryPath(parts);
   const dirUrl = new URL(dirPath, window.location.href);
-  const cacheKey = dirUrl.toString();
+  const cacheKey = `http-dir:${dirUrl.toString()}`;
 
   if (directoryCache.has(cacheKey)) {
     return directoryCache.get(cacheKey);
   }
 
-  const response = await fetch(cacheKey);
+  const response = await fetch(dirUrl.toString());
   if (!response.ok) {
-    throw new Error(`Failed to load ${cacheKey} (${response.status})`);
+    throw new Error(`Failed to load ${dirUrl.toString()} (${response.status})`);
   }
 
   const html = await response.text();
   const entries = parseDirectoryListing(html, dirUrl);
   directoryCache.set(cacheKey, entries);
+
   return entries;
+}
+
+async function readTextFileFromHttp(parts) {
+  const filePath = buildFilePath(parts);
+  const fileUrl = new URL(filePath, window.location.href).toString();
+
+  if (fileCache.has(fileUrl)) {
+    return fileCache.get(fileUrl);
+  }
+
+  const response = await fetch(fileUrl);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${fileUrl} (${response.status})`);
+  }
+
+  const text = await response.text();
+  fileCache.set(fileUrl, text);
+
+  return text;
+}
+
+async function readDirectoryFromGitHub(parts) {
+  const repoPath = buildRepoPath(parts);
+  const cacheKey = `gh-dir:${repoPath}@${githubBranch}`;
+
+  if (directoryCache.has(cacheKey)) {
+    return directoryCache.get(cacheKey);
+  }
+
+  const payload = await githubContentsRequest(repoPath);
+  if (!Array.isArray(payload)) {
+    throw new Error("Expected a directory response from GitHub API.");
+  }
+
+  const entries = payload
+    .filter((item) => item.type === "dir" || item.type === "file")
+    .map((item) => ({ name: item.name, isDirectory: item.type === "dir" }));
+
+  directoryCache.set(cacheKey, entries);
+  return entries;
+}
+
+async function readTextFileFromGitHub(parts) {
+  const repoPath = buildRepoPath(parts);
+  const cacheKey = `gh-file:${repoPath}@${githubBranch}`;
+
+  if (fileCache.has(cacheKey)) {
+    return fileCache.get(cacheKey);
+  }
+
+  const payload = await githubContentsRequest(repoPath);
+
+  if (!payload || payload.type !== "file") {
+    throw new Error("Expected a file response from GitHub API.");
+  }
+
+  let text = "";
+
+  if (payload.encoding === "base64" && typeof payload.content === "string") {
+    text = decodeBase64Utf8(payload.content);
+  } else if (payload.download_url) {
+    const rawResponse = await fetch(payload.download_url);
+    if (!rawResponse.ok) {
+      throw new Error(`Failed to load raw file (${rawResponse.status}).`);
+    }
+    text = await rawResponse.text();
+  } else {
+    throw new Error("GitHub API did not return readable file content.");
+  }
+
+  fileCache.set(cacheKey, text);
+  return text;
+}
+
+async function githubContentsRequest(repoPath) {
+  if (!githubContext) {
+    throw new Error("GitHub context is not available.");
+  }
+
+  let lastError = new Error("GitHub request failed.");
+
+  for (const branch of getBranchCandidates()) {
+    const apiUrl =
+      `https://api.github.com/repos/${encodeURIComponent(githubContext.owner)}` +
+      `/${encodeURIComponent(githubContext.repo)}/contents/${repoPath}?ref=${encodeURIComponent(branch)}`;
+
+    const response = await fetch(apiUrl, {
+      headers: {
+        Accept: "application/vnd.github+json",
+      },
+    });
+
+    if (response.ok) {
+      githubBranch = branch;
+      return response.json();
+    }
+
+    let details = "";
+    try {
+      const payload = await response.json();
+      if (payload && payload.message) {
+        details = `: ${payload.message}`;
+      }
+    } catch {
+      // Ignore non-JSON responses.
+    }
+
+    lastError = new Error(`GitHub API ${response.status}${details}`);
+
+    if (response.status !== 404) {
+      break;
+    }
+  }
+
+  throw lastError;
 }
 
 function parseDirectoryListing(html, directoryUrl) {
@@ -240,12 +385,12 @@ function parseDirectoryListing(html, directoryUrl) {
       return;
     }
 
-    const parts = relativePath.split("/").filter(Boolean);
-    if (parts.length !== 1) {
+    const segments = relativePath.split("/").filter(Boolean);
+    if (segments.length !== 1) {
       return;
     }
 
-    let name = parts[0];
+    let name = segments[0];
     try {
       name = decodeURIComponent(name);
     } catch {
@@ -270,6 +415,47 @@ function parseDirectoryListing(html, directoryUrl) {
   });
 
   return entries;
+}
+
+function decodeBase64Utf8(base64Text) {
+  const cleaned = base64Text.replace(/\n/g, "");
+  const binary = atob(cleaned);
+  const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+  return new TextDecoder("utf-8").decode(bytes);
+}
+
+function getBranchCandidates() {
+  const ordered = [githubBranch, ...BRANCH_FALLBACKS];
+  return [...new Set(ordered.filter(Boolean))];
+}
+
+async function fetchDefaultBranch(owner, repo) {
+  const apiUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+  const response = await fetch(apiUrl, {
+    headers: {
+      Accept: "application/vnd.github+json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Could not detect default branch (${response.status}).`);
+  }
+
+  const payload = await response.json();
+  return payload.default_branch || "main";
+}
+
+function detectGitHubPagesContext() {
+  const host = window.location.hostname.toLowerCase();
+  if (!host.endsWith(".github.io")) {
+    return null;
+  }
+
+  const owner = host.replace(/\.github\.io$/, "");
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const repo = pathParts[0] || `${owner}.github.io`;
+
+  return { owner, repo };
 }
 
 function ensureTrailingSlash(pathname) {
@@ -371,6 +557,10 @@ function buildFilePath(parts) {
   const [root, ...rest] = parts;
   const encodedRest = rest.map((part) => encodeURIComponent(part));
   return [root, ...encodedRest].join("/");
+}
+
+function buildRepoPath(parts) {
+  return parts.map((part) => encodeURIComponent(part)).join("/");
 }
 
 function formatLabel(value) {
