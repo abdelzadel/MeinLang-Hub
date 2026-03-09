@@ -52,7 +52,7 @@ const fileCache = new Map();
 
 window.addEventListener("DOMContentLoaded", async () => {
   await initializeSource();
-  renderLanguages();
+  await restoreFromQueryParams();
 });
 
 async function initializeSource() {
@@ -67,11 +67,70 @@ async function initializeSource() {
   }
 }
 
+async function restoreFromQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  const language = sanitizeQueryParam(params.get("language"));
+  const subfolder = sanitizeQueryParam(params.get("subfolder"));
+  const file = sanitizeQueryParam(params.get("file"));
+
+  await renderLanguages();
+
+  if (!language) {
+    return;
+  }
+
+  try {
+    const languages = await listDirectoryNames([ROOT_FOLDER]);
+    if (!languages.includes(language)) {
+      return;
+    }
+
+    await renderSubfolders(language);
+
+    if (!subfolder) {
+      return;
+    }
+
+    const subfolders = await listDirectoryNames([ROOT_FOLDER, language]);
+    if (!subfolders.includes(subfolder)) {
+      return;
+    }
+
+    await renderFiles(language, subfolder);
+
+    if (!file) {
+      return;
+    }
+
+    const files = await listTextFileNames([ROOT_FOLDER, language, subfolder]);
+    if (!files.includes(file)) {
+      return;
+    }
+
+    await renderContent(language, subfolder, file);
+  } catch (error) {
+    console.error("Could not restore selection from query params.", error);
+  }
+}
+
+async function listDirectoryNames(parts) {
+  const entries = await readDirectory(parts);
+  return entries.filter((entry) => entry.isDirectory).map((entry) => entry.name);
+}
+
+async function listTextFileNames(parts) {
+  const entries = await readDirectory(parts);
+  return entries
+    .filter((entry) => !entry.isDirectory && entry.name.toLowerCase().endsWith(".txt"))
+    .map((entry) => entry.name);
+}
+
 async function renderLanguages() {
   state.view = VIEW.LANGUAGES;
   state.language = "";
   state.subfolder = "";
   state.file = "";
+  syncQueryParams();
 
   setHeader("Languages", "Select a language", `/${ROOT_FOLDER}`);
   toggleBackButton();
@@ -106,6 +165,7 @@ async function renderSubfolders(language) {
   state.language = language;
   state.subfolder = "";
   state.file = "";
+  syncQueryParams();
 
   setHeader("Subfolders", `Select a subfolder in ${formatLabel(language)}`, `/${ROOT_FOLDER}/${language}`);
   toggleBackButton();
@@ -139,6 +199,7 @@ async function renderFiles(language, subfolder) {
   state.language = language;
   state.subfolder = subfolder;
   state.file = "";
+  syncQueryParams();
 
   setHeader("Files", `Select a text in ${formatLabel(subfolder)}`, `/${ROOT_FOLDER}/${language}/${subfolder}`);
   toggleBackButton();
@@ -175,6 +236,7 @@ async function renderContent(language, subfolder, fileName) {
   state.language = language;
   state.subfolder = subfolder;
   state.file = fileName;
+  syncQueryParams();
 
   setHeader("Reader", fileName, `/${ROOT_FOLDER}/${language}/${subfolder}/${fileName}`);
   toggleBackButton();
@@ -555,6 +617,39 @@ function handleError(error, message) {
 function clearError() {
   errorMessage.hidden = true;
   errorMessage.textContent = "";
+}
+
+function syncQueryParams() {
+  const params = new URLSearchParams();
+
+  if (state.language) {
+    params.set("language", state.language);
+  }
+
+  if (state.subfolder) {
+    params.set("subfolder", state.subfolder);
+  }
+
+  if (state.file) {
+    params.set("file", state.file);
+  }
+
+  const query = params.toString();
+  const nextUrl = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`;
+  window.history.replaceState(null, "", nextUrl);
+}
+
+function sanitizeQueryParam(value) {
+  if (!value) {
+    return "";
+  }
+
+  const cleaned = value.trim();
+  if (!cleaned || cleaned.includes("/") || cleaned.includes("\\")) {
+    return "";
+  }
+
+  return cleaned;
 }
 
 function buildDirectoryPath(parts) {
