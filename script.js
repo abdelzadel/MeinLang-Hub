@@ -545,6 +545,10 @@ function openImportModal(language, subfolder) {
     return;
   }
 
+  if (!importConfig.endpoint) {
+    return;
+  }
+
   activeImportTarget = { language, subfolder };
   importTargetLabel.textContent = `Import files from: ${formatLabel(language)} / ${formatLabel(subfolder)}`;
 
