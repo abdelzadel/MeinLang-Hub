@@ -182,49 +182,79 @@ async function renderContent(language, subfolder, fileName) {
 
 async function readDirectory(parts) {
   const dirPath = buildDirectoryPath(parts);
+  const dirUrl = new URL(dirPath, window.location.href);
+  const cacheKey = dirUrl.toString();
 
-  if (directoryCache.has(dirPath)) {
-    return directoryCache.get(dirPath);
+  if (directoryCache.has(cacheKey)) {
+    return directoryCache.get(cacheKey);
   }
 
-  const response = await fetch(dirPath);
+  const response = await fetch(cacheKey);
   if (!response.ok) {
-    throw new Error(`Failed to load ${dirPath} (${response.status})`);
+    throw new Error(`Failed to load ${cacheKey} (${response.status})`);
   }
 
   const html = await response.text();
-  const entries = parseDirectoryListing(html);
-  directoryCache.set(dirPath, entries);
+  const entries = parseDirectoryListing(html, dirUrl);
+  directoryCache.set(cacheKey, entries);
   return entries;
 }
 
-function parseDirectoryListing(html) {
+function parseDirectoryListing(html, directoryUrl) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   const links = Array.from(doc.querySelectorAll("a[href]"));
   const unique = new Set();
   const entries = [];
+  const basePath = ensureTrailingSlash(directoryUrl.pathname);
 
   links.forEach((link) => {
-    let href = link.getAttribute("href") || "";
-    href = href.split("?")[0].split("#")[0].trim();
+    const rawHref = (link.getAttribute("href") || "").trim();
 
-    if (!href || href === "/" || href === "./" || href === ".." || href === "../") {
+    if (!rawHref || rawHref === "/" || rawHref === "./" || rawHref === ".." || rawHref === "../") {
       return;
     }
 
-    if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("//")) {
+    if (rawHref.startsWith("javascript:") || rawHref.startsWith("mailto:")) {
       return;
     }
 
-    let decoded = href;
+    let entryUrl;
     try {
-      decoded = decodeURIComponent(href);
-    } catch (_) {
-      decoded = href;
+      entryUrl = new URL(rawHref, directoryUrl);
+    } catch {
+      return;
     }
 
-    const isDirectory = decoded.endsWith("/");
-    const name = decoded.replace(/\/$/, "");
+    if (entryUrl.origin !== directoryUrl.origin) {
+      return;
+    }
+
+    if (!entryUrl.pathname.startsWith(basePath)) {
+      return;
+    }
+
+    let relativePath = entryUrl.pathname.slice(basePath.length);
+    relativePath = relativePath.replace(/^\/+/, "");
+
+    if (!relativePath) {
+      return;
+    }
+
+    const parts = relativePath.split("/").filter(Boolean);
+    if (parts.length !== 1) {
+      return;
+    }
+
+    let name = parts[0];
+    try {
+      name = decodeURIComponent(name);
+    } catch {
+      // Keep original segment if decoding fails.
+    }
+
+    const labelText = (link.textContent || "").trim();
+    const isDirectory =
+      entryUrl.pathname.endsWith("/") || rawHref.endsWith("/") || labelText.endsWith("/");
 
     if (!name || name === "." || name === ".." || name.startsWith(".")) {
       return;
@@ -240,6 +270,10 @@ function parseDirectoryListing(html) {
   });
 
   return entries;
+}
+
+function ensureTrailingSlash(pathname) {
+  return pathname.endsWith("/") ? pathname : `${pathname}/`;
 }
 
 function renderCards() {

@@ -43,11 +43,11 @@ body {
 }
 
 .panel {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--panel);
-  padding: 1rem;
-  box-shadow: 0 10px 26px rgba(14, 23, 35, 0.06);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 .top-bar {
@@ -199,7 +199,7 @@ input[type="search"]:focus,
   }
 
   .panel {
-    padding: 0.85rem;
+    padding: 0;
   }
 
   .card-grid {
