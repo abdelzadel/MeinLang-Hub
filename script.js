@@ -29,6 +29,8 @@ const importCloseButton = document.getElementById("importCloseButton");
 
 const ROOT_FOLDER = "texts";
 const STATIC_INDEX_FILE = `${ROOT_FOLDER}/catalog.json`;
+const IMPORT_MAX_FILES_PER_REQUEST = 20;
+const IMPORT_MIN_FILES_PER_REQUEST = 1;
 const VIEW = {
   LANGUAGES: "languages",
   SUBFOLDERS: "subfolders",
@@ -779,57 +781,126 @@ async function submitImportFromModal(event) {
       throw new Error("This subfolder has no .txt files to import.");
     }
 
-    const formData = new FormData();
+    setImportStatus(`Preparing ${fileNames.length} file(s)...`, "info");
 
-    if (importConfig.authRequired) {
-      formData.append("email", emailValue);
-      formData.append("password", passwordValue);
-    }
-
-    formData.append("language", formatLabel(language));
-    formData.append("subfolder", subfolder);
-    formData.append("tag", tagValue);
-
-    let appendedCount = 0;
-
+    const uploadFiles = [];
+    let skippedUnreadableCount = 0;
     for (const fileName of fileNames) {
       const text = await readTextFile([ROOT_FOLDER, language, subfolder, fileName]);
       if (!String(text || "").trim()) {
+        skippedUnreadableCount += 1;
         continue;
       }
-
-      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
-      formData.append("files", blob, fileName);
-      appendedCount += 1;
+      uploadFiles.push({
+        name: fileName,
+        text,
+      });
     }
 
-    if (!appendedCount) {
+    if (!uploadFiles.length) {
       throw new Error("No readable .txt content found to upload.");
     }
 
-    const response = await fetch(importConfig.endpoint, {
-      method: "POST",
-      body: formData,
-    });
+    let uploadedCount = 0;
+    let createdCount = 0;
+    let requestCount = 0;
+    let batchSize = Math.min(IMPORT_MAX_FILES_PER_REQUEST, uploadFiles.length);
 
-    let payload = null;
-    try {
-      payload = await response.json();
-    } catch {
-      payload = null;
+    while (uploadedCount < uploadFiles.length) {
+      const nextBatch = uploadFiles.slice(uploadedCount, uploadedCount + batchSize);
+      const startIndex = uploadedCount + 1;
+      const endIndex = uploadedCount + nextBatch.length;
+      setImportStatus(
+        `Uploading files ${startIndex}-${endIndex} of ${uploadFiles.length}...`,
+        "info"
+      );
+
+      const responsePayload = await uploadImportBatch({
+        language,
+        subfolder,
+        tagValue,
+        emailValue,
+        passwordValue,
+        files: nextBatch,
+      });
+
+      if (!responsePayload.ok) {
+        const errorMessage =
+          responsePayload.errorMessage || `Import failed with HTTP ${responsePayload.status}.`;
+        const needsSmallerBatch =
+          /too many files/i.test(errorMessage) && nextBatch.length > IMPORT_MIN_FILES_PER_REQUEST;
+
+        if (needsSmallerBatch) {
+          batchSize = Math.max(IMPORT_MIN_FILES_PER_REQUEST, Math.floor(nextBatch.length / 2));
+          setImportStatus(`Endpoint limit reached. Retrying with ${batchSize} files per request...`, "info");
+          continue;
+        }
+
+        throw new Error(errorMessage);
+      }
+
+      requestCount += 1;
+      uploadedCount += nextBatch.length;
+      createdCount += Number(responsePayload.payload?.createdCount || nextBatch.length);
     }
 
-    if (!response.ok) {
-      throw new Error(payload?.error || `Import failed with HTTP ${response.status}.`);
+    const summary = [
+      `Import complete. ${createdCount} file(s) uploaded in ${requestCount} request(s).`,
+    ];
+    if (skippedUnreadableCount > 0) {
+      summary.push(`${skippedUnreadableCount} unreadable/empty file(s) were skipped.`);
     }
 
-    const importedCount = Number(payload?.createdCount || appendedCount);
-    setImportStatus(`Import complete. ${importedCount} file(s) uploaded.`, "success");
+    setImportStatus(summary.join(" "), "success");
   } catch (error) {
     setImportStatus(error.message || "Import failed.", "error");
   } finally {
     setImportLoading(false);
   }
+}
+
+async function uploadImportBatch({
+  language,
+  subfolder,
+  tagValue,
+  emailValue,
+  passwordValue,
+  files,
+}) {
+  const formData = new FormData();
+
+  if (importConfig.authRequired) {
+    formData.append("email", emailValue);
+    formData.append("password", passwordValue);
+  }
+
+  formData.append("language", formatLabel(language));
+  formData.append("subfolder", subfolder);
+  formData.append("tag", tagValue);
+
+  files.forEach((file) => {
+    const blob = new Blob([file.text], { type: "text/plain;charset=utf-8" });
+    formData.append("files", blob, file.name);
+  });
+
+  const response = await fetch(importConfig.endpoint, {
+    method: "POST",
+    body: formData,
+  });
+
+  let payload = null;
+  try {
+    payload = await response.json();
+  } catch {
+    payload = null;
+  }
+
+  return {
+    ok: response.ok,
+    status: response.status,
+    payload,
+    errorMessage: payload?.error || null,
+  };
 }
 
 function setImportStatus(message, type = "none") {
@@ -846,7 +917,18 @@ function setImportStatus(message, type = "none") {
 
   importStatus.hidden = false;
   importStatus.textContent = message;
-  importStatus.className = `import-status ${type === "success" ? "success" : "error"}`;
+
+  if (type === "success") {
+    importStatus.className = "import-status success";
+    return;
+  }
+
+  if (type === "error") {
+    importStatus.className = "import-status error";
+    return;
+  }
+
+  importStatus.className = "import-status";
 }
 
 function setImportLoading(isLoading) {
