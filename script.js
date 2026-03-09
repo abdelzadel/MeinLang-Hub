@@ -28,6 +28,7 @@ const importCancelButton = document.getElementById("importCancelButton");
 const importCloseButton = document.getElementById("importCloseButton");
 
 const ROOT_FOLDER = "texts";
+const STATIC_INDEX_FILE = `${ROOT_FOLDER}/_index.json`;
 const VIEW = {
   LANGUAGES: "languages",
   SUBFOLDERS: "subfolders",
@@ -60,6 +61,7 @@ const githubContext = detectGitHubPagesContext();
 const importConfig = getImportConfigFromUrl();
 
 let githubBranch = "main";
+let staticTreeIndex = null;
 let currentCards = [];
 let onCardSelect = null;
 let activeImportTarget = { language: "", subfolder: "" };
@@ -74,6 +76,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function initializeSource() {
+  staticTreeIndex = await loadStaticTreeIndex();
+
+  if (staticTreeIndex) {
+    return;
+  }
+
   if (!githubContext) {
     return;
   }
@@ -323,6 +331,10 @@ async function renderContent(language, subfolder, fileName) {
 }
 
 async function readDirectory(parts) {
+  if (staticTreeIndex) {
+    return readDirectoryFromStaticIndex(parts);
+  }
+
   if (githubContext) {
     return readDirectoryFromGitHub(parts);
   }
@@ -331,6 +343,10 @@ async function readDirectory(parts) {
 }
 
 async function readTextFile(parts) {
+  if (staticTreeIndex) {
+    return readTextFileFromStaticIndex(parts);
+  }
+
   if (githubContext) {
     return readTextFileFromGitHub(parts);
   }
@@ -376,6 +392,43 @@ async function readTextFileFromHttp(parts) {
   fileCache.set(fileUrl, text);
 
   return text;
+}
+
+async function readDirectoryFromStaticIndex(parts) {
+  const cacheKey = `idx-dir:${parts.join("/")}`;
+  if (directoryCache.has(cacheKey)) {
+    return directoryCache.get(cacheKey);
+  }
+
+  const node = getStaticIndexNode(parts);
+  if (!node || typeof node !== "object" || Array.isArray(node)) {
+    throw new Error(`Index path not found: ${parts.join("/")}`);
+  }
+
+  const entries = Object.keys(node)
+    .filter((name) => {
+      const value = node[name];
+      const isDirectory = Boolean(value && typeof value === "object" && !Array.isArray(value));
+      return isDirectory || String(name).toLowerCase().endsWith(".txt");
+    })
+    .map((name) => {
+      const value = node[name];
+      return {
+        name,
+        isDirectory: Boolean(value && typeof value === "object" && !Array.isArray(value)),
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  directoryCache.set(cacheKey, entries);
+  return entries;
+}
+
+async function readTextFileFromStaticIndex(parts) {
+  if (!isIndexedTextFile(parts)) {
+    throw new Error(`Index file not found: ${parts.join("/")}`);
+  }
+  return readTextFileFromHttp(parts);
 }
 
 async function readDirectoryFromGitHub(parts) {
@@ -472,6 +525,66 @@ async function githubContentsRequest(repoPath) {
   }
 
   throw lastError;
+}
+
+async function loadStaticTreeIndex() {
+  try {
+    const indexUrl = new URL(STATIC_INDEX_FILE, window.location.href).toString();
+    const response = await fetch(indexUrl, { cache: "no-store" });
+    if (!response.ok) {
+      return null;
+    }
+
+    const payload = await response.json();
+    const normalized = normalizeStaticTreeIndex(payload);
+    return normalized;
+  } catch (error) {
+    return null;
+  }
+}
+
+function normalizeStaticTreeIndex(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return null;
+  }
+
+  const tree = payload.tree;
+  if (!tree || typeof tree !== "object" || Array.isArray(tree)) {
+    return null;
+  }
+
+  return { tree };
+}
+
+function getStaticIndexNode(parts) {
+  if (!staticTreeIndex || !Array.isArray(parts) || parts[0] !== ROOT_FOLDER) {
+    return null;
+  }
+
+  let node = staticTreeIndex.tree;
+  for (let index = 1; index < parts.length; index += 1) {
+    if (!node || typeof node !== "object" || Array.isArray(node)) {
+      return null;
+    }
+    const part = parts[index];
+    node = node[part];
+  }
+
+  return node;
+}
+
+function isIndexedTextFile(parts) {
+  if (!Array.isArray(parts) || parts.length < 2) {
+    return false;
+  }
+
+  const fileName = parts[parts.length - 1];
+  const parentNode = getStaticIndexNode(parts.slice(0, -1));
+  if (!parentNode || typeof parentNode !== "object" || Array.isArray(parentNode)) {
+    return false;
+  }
+
+  return parentNode[fileName] === true;
 }
 
 function parseDirectoryListing(html, directoryUrl) {
