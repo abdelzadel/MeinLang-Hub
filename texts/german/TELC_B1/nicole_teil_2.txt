@@ -3,6 +3,7 @@ LEVEL: TELC_B1
 QUELLE: nicole
 
 TEIL 2 PASSAGE
+
 Schreiben, Rechnen, Programme installieren
 
 Schaden oder nützen Computer unseren Kindern? Fragen sich viele Eltern. Ein Computerkurs Veranstalter ist sich ganz sicher: wenn man den Kindern beibringt, den Computer richtig einzusetzen, ist sogar eine Lernhilfe. Seit fünf Jahren bietet Franz Krapfi Krapfen Bauer Computerkurse für Kinder zwischen sieben und vierzehn Jahren an und ist von seinen Schülern begeistert Am liebsten würden die Kinder drei Stunden ohne Pause durcharbeiten Und das obwohl in seinen Kursen nicht gespielt wird, sondern der Computer als Lernhilfe genutzt wird. Im ersten Kurs lernen die Kinder den Umgang mit dem Betriebssystem und erste Grundzüge der Textverarbeitung. Das Geheimnis von Krapfen Bauer Ich erkläre die Programme in der Sprache der Kinder und langweile sie nicht mit technischen Details. Sein Talent entdeckte er, als sich seine eigenen Kinder für den PC) zu interessieren begannen. Seine Tochter brachte immer mehr Mitschüler zum Sonntäglich PC-Training mit, bis eines Tages klar war: Das muss auf professionelle Beine gestellt werden.

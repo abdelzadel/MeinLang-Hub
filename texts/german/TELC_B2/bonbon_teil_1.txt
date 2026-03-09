@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: bonbon
 
 TEIL 1 TEXT 1
+
 Bonbons machen Kinder glücklich, und ihre Geschichte reicht weit zurück. Bereits
 vor über 1.000 Jahren gab es in China, Griechenland und im Römischen Reich Süßigkeiten
 aus Honig, Blüten und Früchten. Wer mehr über Bonbons erfahren möchte, sollte das
@@ -13,6 +14,7 @@ einschließlich ihrer Wirkung gegen Husten. Das Museum zeigt Bonbondosen, Maschi
 und Werbemittel und führt Besucher durch die Geschichte der Bonbonproduktion.
 
 TEIL 1 TEXT 2
+
 Am Frankfurter Hauptbahnhof können Reisende einen besonderen Snack genießen:
 Ein "Ret-Tomat", ein Automat mit abgelaufenen oder bald ablaufenden Schokoriegeln,
 Chips und anderen Leckereien, steht bereit. Diese Produkte, deren
@@ -23,6 +25,7 @@ schützen und auf Lebensmittelverschwendung aufmerksam machen. Reisende können
 Süßigkeiten kaufen und gleichzeitig einen Beitrag zur Nachhaltigkeit leisten.
 
 TEIL 1 TEXT 3
+
 Die römischen Thermen galten als besondere Prestigebauten, da sie
 mehrere Badebecken sowie Schwitz- und Dampfbäder boten. Doch sie waren nicht
 nur Orte der Entspannung, sondern auch wichtige TreƯpunkte des
@@ -38,6 +41,7 @@ wurden von spezialisierten Architekten entworfen und beeindruckten durch ihre
 Pracht und den Komfort.
 
 TEIL 1 TEXT 4
+
 Nicht nur in Hollywoodfilmen tröstet man sich bei Liebeskummer
 mit Pralinen. Der GriƯ zu Süßigkeiten ist weltweit verbreitet, da viele
 glauben, sie könnten die Stimmung aufhellen, die Konzentration verbessern
@@ -49,4 +53,5 @@ Zuckerkonsum müder und weniger aufmerksam waren als jene, die ein
 Placebo erhielten.
 
 TEIL 1 TEXT 5
+
 Wellness und der Besuch von Kurorten und Thermalbädern haben in Ungarn eine lange Tradition. Obwohl das Land keinen direkten Zugang zum Meer hat, ist es reich an Thermalquellen, aus denen warmes Grundwasser über 20 Grad austritt. Dieses Wasser enthält Mineralstoffe, die eine positive Wirkung auf den Körper haben sollen. Besonders bekannt ist Budapest, das mit 123 Thermalquellen die größte Kurstadt Europas ist und zugleich als einzige Hauptstadt eines Landes auch ein berühmtes Kurbad beherbergt. In Budapest gibt es mehr als 20 Bäder, von denen viele historisch und architektonisch von großer Bedeutung sind. Die Bäder sind nicht nur für Touristen ein Anziehungspunkt, sondern auch für die Stadtbewohner, die sich oft mit Freunden dort treffen.

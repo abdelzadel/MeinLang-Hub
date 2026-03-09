@@ -3,16 +3,21 @@ LEVEL: TELC_B1
 QUELLE: miroslav
 
 TEIL 1 TEXT 1
+
 Ein neuer Trend in Sachen Wohnen setzt sich immer mehr durch: Ökodörfer, Ilve. Vielfalt ist groß. Außerdem bieten sie eine echte Alternative zur Anonymität und dem Großstadtleben. Nicht nur auf sich selbst, sondern auch auf einen bewussten Umgang mit Gesellschaft und Natur soll in Zukunft geachtet werden. Bei den neuen Wohnungen setzt man auf ökologisches Bauen und auf erneuerbare Energien. Die meisten Ökosiedlungen verfügen über Se minarzentren, in denen Lehrgänge zu dieser neuen Form des Miteinanders angeboten werden.
 
 TEIL 1 TEXT 2
+
 Angebot für Menschen, die durch ihren Beruf überlastet sind: "Yoga und Meditation für das innere Gleichgewicht". Renate Loebner, ausgebildete Yogalehrerin, erklärt und zeigt in Wochenendseminaren in einem Haus am See, wie es funktioniert. Die Diplom-Biologin bezeichnet Yoga als Kraftquelle für Körper, Geist und Seele. Mit diesen Methoden können gestresste Menschen in kurzer Zeit wieder zur Ruhe kom men, da die körperlichen und geistigen Übungen relativ schnell zu erlernen sind.
 
 TEIL 1 TEXT 3
+
 Grau, trocken und hart: Der Baustoff Beton hat einen eher langweiligen Ruf. Dabei ist er ein Multitalent. Je nach Rezeptur wird Beton nun sogar zum Luftreiniger in Großstädten. Der neue Zement mit dem Namen TioCem ist das Ergebnis eines knapp vierjährigen Forschungsprojekts. Er reagiert auf Licht und kann bis zu 90 Prozent der Schadstoffe aus der Luft entfernen.
 
 TEIL 1 TEXT 4
+
 Immer mehr Menschen erfüllen sich einen Traum: ein eigenes Baumhaus. Die Baustile sind so unterschiedlich wie die Besitzer, sie dienen zum Beispiel als Gästezimmer oder Teehäuser. Viele nutzen sie sogar in den Sommermonaten zum Schlafen. Baumhaus-Spezialist Erwin Köstinger freut sich über diese Entwicklung: Kind-Baumhäuser können nicht nur zum Wohnen, sondern auch zum Arbeiten als Büro genutzt werden
 
 TEIL 1 TEXT 5
+
 In Großstädten gehören sie schon zum Alltagsleben die Partys nach der Arbeit. Neben Musik und Tanz umfasst das Angebot bei solchen Partys auch die Möglichkeit zu einem Imbiss, in der Regel als Ersatz für das Abendessen. Kein Wunder, dass sich aus solchen Treffen, die in der Mehrzahl von Alleinstehenden besucht werden, schon jede Menge Freundschaften und Partnerschaften fürs Leben ergeben haben.

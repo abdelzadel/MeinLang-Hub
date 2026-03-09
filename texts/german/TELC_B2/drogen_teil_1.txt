@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: drogen
 
 TEIL 1 TEXT 1
+
 Wie wollen wir von anderen gesehen werden? Von unserer Schokoladenseite natürlich. Aber es gibt Menschen,
 die haben keine. Eine Frau mit schiefer Nase mag sich weder im Profil noch frontal zeigen. "Die Nase," so der
 plastische Chirurg Professor Henrik Menke, "sitzt mitten im Gesicht – so banal das klingt. Zu große Abweichungen
@@ -14,6 +15,7 @@ ab, mit Videoanimation zu arbeiten. Damit kann ich zwar alles machen, jedes gew�
 Die Realität ist aber eine andere. Aus diesem Grund hat es der Gesetzgeber zu Recht untersagt, mit Vorhernachher-Bildern zu arbeiten."
 
 TEIL 1 TEXT 2
+
 Der Riechsinn ist unser ursprünglichster Sinn – sagt Matthias Schenk vom Schloss Freudenberg. Wer
 ihn schärfen will, ist mit dem dort befindlichen "Erfahrungsfeld der Sinne" an der richtigen Adresse:
 Sieben Stationen befassen sich mit dem Riechvermögen.
@@ -28,6 +30,7 @@ Gestützt wird diese Aussage dadurch, dass beispielsweise Säuglinge ihre Mutter
 sehen und hören.
 
 TEIL 1 TEXT 3
+
 Mit Drogen kennt sich Falko aus. Der sechs Jahre alte Schäferhund sucht für den Zoll nach Kokain,
 Haschisch und Heroin. Bis zu vier Kofferladungen, meist aus Südamerika, Afrika und Südostasien,
 beschnüffelt der Vierbeiner am Tag. Rund 300 Mal in der Minute atmet er dabei ein und aus – ein wahrer
@@ -42,6 +45,7 @@ wahrzunehmen. Bis zu zehn Jahre können Spürhunde des Zolls arbeiten, ehe sie s
 verdienten Hunde-Ruhestand gehen dürfen.
 
 TEIL 1 TEXT 4
+
 Beim Menschen ist das Sehen der Sinn Nummer eins, gefolgt vom Hören und an dritter Stelle dem
 Riechen. Ganz anders sieht es bei vielen Tieren aus, zum Beispiel bei Hunden. "Ein Hund, der nicht sehen
 kann, ist wie ein Mensch ohne Geruch – das ist nicht schön, aber auch nicht dramatisch," sagt Ralf
@@ -58,6 +62,7 @@ Richtung bestimmen, in der sie ihre Beute finden. Auch die scheinbar nasenlosen 
 "Haie zum Beispiel riechen und schmecken Blut über Kilometer," so Spangenberg.
 
 TEIL 1 TEXT 5
+
 Niesen ist eine Reaktion auf die Umwelt. Mal kitzelt Staub die Nase, mal reizt ein chemischer Stoff
 oder ein anderer Fremdkörper in der Luft unser Riechorgan. Sogar grelles Licht kann durch die
 Verbindung der Gesichtsnerven zum Niesen führen. Unwillkürlich wird ein Reflex ausgelöst, der die Nase

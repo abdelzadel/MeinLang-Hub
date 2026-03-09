@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: keine-zeit
 
 TEIL 1 TEXT 1
+
 Die Krüger sind eine ganz normale
 Familie. Vater Bernd arbeitet 40 Stunden
 pro Woche in einer Versicherungs-agentur,
@@ -35,6 +36,7 @@ managen. Wir können uns nur selbst
 managen.
 
 TEIL 1 TEXT 2
+
 Der Wunsch nach der Zweisamkeit hat sich zu einem guten Geschäft entwickelt, denn gerade reiferen
 Alleinstehenden fällt es oft schwer, neue Partnerschaften herzustellen. Vermittlungsagenturen bieten ihre Dienste
 im Internet oder in den Tageszeitungen an. Neben vielen seriösen Firmen finden sich auf dem Markt aber auch
@@ -48,6 +50,7 @@ beispielsweise ein Café vereinbart, verliert der Kunde sein 14-tägiges Widerru
 einem Hausbesuch zustehen und ihn von einem vielleicht zu schnell unterschriebenen Vertrag befreien würde.
 
 TEIL 1 TEXT 3
+
 Hat man den richtigen Partner gefunden, muss an der Beziehung gearbeitet werden. Was viele nicht wissen:
 die Partnerschaft verläuft in Phasen. Fast jede Liebe beginnt mit einer Hochphase der Verliebtheit. Ist diese
 Phase vorüber, folgt eine Phase des satten Glücks, in der beide den Wunsch haben, mit diesem Menschen ein
@@ -61,6 +64,7 @@ Beziehung haben sich so viel Sicherheit und Vertrauen gebildet, dass die Beziehu
 Zukunft hat.
 
 TEIL 1 TEXT 5
+
 Nach dem Abitur, zum Studium oder weil der Zeitpunkt einfach gekommen ist: Wenn die
 Kinder ausziehen, verändert sich viel, auch für die Eltern. Neben der Freude, endlich
 wieder Zeit und Raum für sich zu haben, entsteht auch eine Leere, die es nun zu füllen

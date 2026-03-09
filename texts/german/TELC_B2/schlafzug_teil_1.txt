@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: schlafzug
 
 TEIL 1 TEXT 1
+
 Wussten Sie, dass der längste dokumentierte Winterschlaf einer Fledermausart in Nordamerika beeindruckende 344
 Tage dauerte? Forscher der University of Colorado haben herausgefunden, dass diese Tiere in extrem kalten Regionen
 fast ein ganzes Jahr ohne Nahrung überleben können – ein faszinierender Beweis für die Anpassungsfähigkeit der Natur.
@@ -16,6 +17,7 @@ Natur Lösungen für extreme Bedingungen entwickelt hat. Manche Tiere wie das Ei
 Winterschlaf, sondern eine Winterruhe, bei der sie regelmäßig aufwachen, um Vorräte zu fressen.
 
 TEIL 1 TEXT 2
+
 In Dänemark wurde vor einigen Jahren ein umfangreiches Schulprojekt durchgeführt, das die Auswirkungen von Tageslicht
 auf Kinder untersuchte. Dabei zeigte sich, dass Schülerinnen und Schüler in Räumen mit großen Fenstern und viel
 natürlichem Licht im Durchschnitt bessere Testergebnisse erzielten als Gleichaltrige in schlecht beleuchteten
@@ -27,6 +29,7 @@ ausreichend Sonnenlicht nicht nur die Leistungsfähigkeit steigert, sondern auch
 In gut beleuchteten Räumen sind die Schülerinnen und Schüler ausgeglichener, weniger müde und insgesamt motivierte
 
 TEIL 1 TEXT 3
+
 Schon die alten Römer wussten, dass ausreichend Schlaf entscheidend für die Leistungsfähigkeit ist. In historischen
 Schriften findet man Hinweise darauf, dass Soldaten vor wichtigen Schlachten besonders viel Ruhezeit bekamen, um
 konzentrierter und belastbarer zu sein. Auch moderne Studien, etwa an der Universität von Kopenhagen, zeigen:
@@ -39,6 +42,7 @@ Abend –, kann das zu Problemen führen. Wissenschaftler weisen darauf hin, das
 Tag verursachen, sondern langfristig auch das Immunsystem schwächen und das Risiko für Krankheiten erhöhen können.
 
 TEIL 1 TEXT 4
+
 Schon im Mittelalter unternahmen Menschen nächtliche Pilgerwege zu Klöstern oder Wallfahrtsorten, um Ruhe und Einkehr zu finden. In Japan
 gibt es bis heute die Tradition der „Yoru-no-sanpo“ – abendlicher Spaziergänge, die nicht nur spirituelle Bedeutung haben, sondern auch der
 Gesundheit dienen. Neuere Untersuchungen der Universität von Bergen zeigen zudem, dass schon 20 Minuten Bewegung im Dunkeln den
@@ -51,6 +55,7 @@ Hormon, das unseren Schlaf-Wach-Rhythmus steuert und Schlafproblemen vorbeugen k
 Bewegung vor allem dann förderlich ist, wenn sie unter sicheren Bedingungen erfolgt, etwa auf gut markierten Wegen oder in geführten Gruppen.
 
 TEIL 1 TEXT 5
+
 Schon die Weltgesundheitsorganisation (WHO) weist seit Jahren darauf hin, wie stark Tageslicht unsere innere Uhr
 beeinflusst. Studien zeigen, dass Beschäftigte, die in lichtdurchfluteten Büros arbeiten oder während der Mittagspause
 einen Spaziergang im Freien machen, produktiver sind und seltener krank werden. Besonders in skandinavischen Ländern,

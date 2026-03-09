@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: bilder
 
 TEIL 1 TEXT 1
+
 Der Buchtitel erinnert an eine
 Horrorgeschichte: “Die Nacht”. Aber dem
 Autor Paul Bogart geht es nicht um
@@ -34,6 +35,7 @@ sehr deutlich - hält nicht viel davon, dass es
 heute kaum noch völlig dunkel ist.
 
 TEIL 1 TEXT 2
+
 Fotos machen ist heute nicht schwer. Schnell nimmt man das Handy und macht einen
 Schnappschuss. Wer aber besondere und eindrucksvolle Bilder haben möchte, muss sich mit dem
 Thema Fotografie schon etwas intensiver befassen. Dietmar Spehrs neuer Fotografie-Ratgeber ist
@@ -48,6 +50,7 @@ Lehrbuch daherkommt. Von der Auswahl des Motivs über die richtige Kameraeinstel
 zur optimierenden Nachbearbeitung am Computer wird alles Wissenswerte vermittelt.
 
 TEIL 1 TEXT 3
+
 Bilder der Fotografin Annie Leibovitz sind ab kommendem Samstag im Kunsthaus Wien zu sehen.
 Die Ausstellung besticht durch ihre umfangreiche Bildauswahl. Zum einen kann man zahlreiche
 Portraits berühmter Schauspieler, Politiker oder Musiker bestaunen. Zum anderen sieht man Bilder aus
@@ -62,6 +65,7 @@ Eines ist nach der Ausstellung und dem Film klar: Anne Leibovitz zählt zu den b
 Fotografinnen des 20. und beginnenden 21. Jahrhunderts.
 
 TEIL 1 TEXT 4
+
 Die Abkürzung TWAN klingt nach einem neuen Computerprogramm, aber tatsächlich steht sie für
 eine neue fotografische Methode, die der Iraner Babak Amin Tafreshi entwickelt hat. Diese neue
 Methode führt zu atemberaubenden Ergebnissen: Noch nie hat man die Sterne so eindrucksvoll
@@ -79,6 +83,7 @@ Neben aller Technik kommt es aber auf den künstlerischen Blick des Fotografen a
 Geduld.
 
 TEIL 1 TEXT 5
+
 Er gehörte zu den ganz Großen seines Fachs: Andreas Feininger. Eine neue Biografie
 erzählt die Lebensgeschichte des weltberühmten Fotografen. Neben einem Text auf
 Deutsch und Englisch enthält sie auch eine kleine, aber gute Auswahl seiner Fotoarbeiten

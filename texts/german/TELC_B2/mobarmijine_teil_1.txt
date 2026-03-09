@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: mobarmijine
 
 TEIL 1 TEXT 1
+
 Martina Lux hat ein Hobby, mit dem sie im Kreis ihrer Freundinnen ziemlich
 allein steht:Sie programmiert in ihrer Freizeit. "Mich hat immer schon
 interessiert, wie Computerprogramme eigentlich funktionieren. sagt die 17-
@@ -23,6 +24,7 @@ allein ist mit ihrem Hobby, das ist für sie ein besonders wichtiges Ergebnis
 dieses Wochenendes, meint Martina.
 
 TEIL 1 TEXT 2
+
 Jugend forscht ist ein bundesweiter Nachwuchswettbewerb für junge
 Menschen bis zum Alter von 21 Jahren, bei dem besondere Leistungen in
 Mathematik, Technik, Naturwissenschaften und Informatik ausgezeichnet
@@ -43,6 +45,7 @@ haben junge Menschen die Möglichkeit, wertvolle Erfahrungen mit
 Forschungsprojekten zusammen. Mitmachen lohnt sich auf jeden Fall.
 
 TEIL 1 TEXT 3
+
 Die Industriellenvereinigung beklagt in einer jüngsten Pressemitteilung den
 deutlichen Mangel an Fachkräften in der Naturwissenschaften und den
 technischen Berufen. Dieser Fachkräftemangel sei besonders ausgeprägt in den
@@ -62,6 +65,7 @@ Türen für potenzielle Talente zu öffnen und sich Fachkräfte für die Zukunft
 sichern.
 
 TEIL 1 TEXT 4
+
 Im Kulturzentrum war gestern Abend Tobias Meyer zu Gast. Die Organisatoren
 hatten den bekannten Autor zahlreicher Sachbücher über Erziehung und
 Bildung eingeladen, zum Thema Berufsorientierung zu sprechen. In seinem
@@ -81,6 +85,7 @@ entscheidende Impulse gesetzt werden, indem Talente und Stärken erkannt
 und bereits sehr früh gefördert würden.
 
 TEIL 1 TEXT 5
+
 Wie eine repräsentative Umfrage unter Studenten kürzlich zeigte, erfreut sich
 die Automobilindustrie nach wie vor großer Beliebtheit bei Studierenden der
 Fachgebiete Wirtschaft und Technik. Gefragt nach der den fünf attraktivsten

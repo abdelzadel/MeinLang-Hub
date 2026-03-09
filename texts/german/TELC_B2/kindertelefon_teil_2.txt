@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: kindertelefon
 
 TEIL 2 PASSAGE
+
 Märchenwelt Web 2.0:
 Catherine und David Cook waren 15 und 16, als ihnen beim Blättern im Highschool-Jahrbuch eine Idee kam: eine Internetseite zum Flirten und Lästern, wie ein Schulhof für Ehemalige. Sie erfanden „MyYearbook.com“, die Seite, die sie reich gemacht hat.
 

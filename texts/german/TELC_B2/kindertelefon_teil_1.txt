@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: kindertelefon
 
 TEIL 1 TEXT 1
+
 Vielen Menschen verursachen sie ein mulmiges
 Gefühl : Die meisten Schnurlos - Telefone strahlen
 auch dann , wenn man gar nicht telefoniert . Vor
@@ -24,6 +25,7 @@ E360 im Umkreis von fünf Metern , das AEG Fame
 400 kommt mit rund 30 Prozent aus .
 
 TEIL 1 TEXT 2
+
 Wenn Kinder ein Handy haben , dann ist das schön und gut . Doch was , wenn der Filius nicht dran geht ?
 Wenn er möglicherweise etwas Besseres zu tun hat , als zurückzurufen ? Und noch schlim mer , wenn sich
 Heranwachsende im prüden Amerika schmutzige Bilder auf dem Handydisplay anschauen ? Das schreit nach
@@ -37,6 +39,7 @@ für das interessieren , was sie hören , sehen und lesen , so Zander weiter . H
 - Software seien bereits in Vorbereitung .
 
 TEIL 1 TEXT 3
+
 Wer unter Palmen liegt , greift gern zum Handy . Doch trotz neuer Preisobergrenzen bleibt das ein teurer
 Spaß ! Die Verbraucherzentrale Schleswig - Holstein erklärt , wie Sie richtig wählen . Bis 30. Juli müssen alle
 europäischen Mobilfunkanbieter den neuen „ Eurotarif ” anbieten . Er gilt in allen EU - Staaten und schreibt
@@ -53,6 +56,7 @@ angefangene Minute , mit Prepaid - Karte nur etwa 58.31 Cent . SMS schreiben Im 
 sind Kurzmitteilungen ( SMS ) auch im Urlaub meistens günstiger .
 
 TEIL 1 TEXT 4
+
 Manche Momente muss man einfach festhalten - mit einem Foto . Doch dessen Qualität hängt von vielen
 Faktoren ab : der Kamera , den Verhältnissen vor Ort und der Erfahrung des Fotografen . Für ein paar
 schöne Erinnerungsfotos sich aber eine teure Profi - Ausrüstung zuzulegen , lohnt selten . Vom Pauken
@@ -71,6 +75,7 @@ Bilder eignen sich am besten Vormittags- und Spätnachmittagsstun den , weil das
 weich ist .
 
 TEIL 1 TEXT 5
+
 Es gibt in Deutschland wohl kaum eine bessere Chance für die Einführung von Handy - TV als die Fußball -
 WM 2006. Doch ein rechtzeitiger Start ist ungewiss . Die Problemfelder sind vielschichtig . Drei Standards
 kämpfen darum , das erste deutsche Mobilfernsehen zu sein : UMTS , DMB und DVB - H . Und das möglichst

@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: impfung
 
 TEIL 1 TEXT 1
+
 Immer wieder überspringen Krankheitserreger
 aus dem Tierreich die Artengrenze und werden
 auch dem Menschen gefährlich. Allerdings galt
@@ -30,6 +31,7 @@ mögliche Gefahren für den Menschen aufmerksam
 zu werden.
 
 TEIL 1 TEXT 2
+
 Virologen ist es gelungen, den Vogelgrippe-Erreger hochansteckend zu machen. Nun empfiehlt das
 US-Gesundheitsministerium Fachzeitschriften, die entsprechenden Daten nicht zu veröffentlichen, weil
 Terroristen mit ihrer Hilfe Biowaffen basteln könnten. Nur die Ergebnisse der Versuche sollen erscheinen, nicht
@@ -44,6 +46,7 @@ Es ist für die öffentliche Gesundheit notwendig, dass alle Details jeder wisse
 Influenzaviren Forschern zugänglich sind.
 
 TEIL 1 TEXT 3
+
 Ein neuer Impfstoff gegen Grippe könnte in Zukunft sämtliche Varianten der Krankheit abdecken und damit die
 jährliche Spritze überflüssig machen. Der Stoff bekämpft die stets gleichen Proteine im Inneren der Grippeviren
 statt wie derzeitige Substanzen die sich ständig ändernden an der Außenhülle. Ein Forscherteam der
@@ -57,6 +60,7 @@ Grippeviren zu aktivieren. Der neue Stoff hingegen rege die so genannten T-Zelle
 wichtiger Teil des Immunsystems sind.
 
 TEIL 1 TEXT 4
+
 Breitet sich die Grippe in einer Schule aus, sind es besonders geschlechtshomogene Gruppen,
 in denen das Virus schnell neue Opfer findet. Denn wie US-Mediziner herausgefunden haben,
 stecken Buben vor allem Buben und Mädchen in erster Linie Mädchen an. Infektionen.
@@ -69,6 +73,7 @@ Ob ein Kind neben einem bereits infizierten Schulkollegen saß oder nicht, macht
 Unterschied bei der Ausbreitung der Influenza.
 
 TEIL 1 TEXT 5
+
 Da sich Influenzaviren immer wieder verändern, unternimmt die
 Weltgesundheitsorganisation WHO jedes Jahr große Anstrengungen,
 um die gerade umlaufenden Grippeviren zu identifizieren, anhand

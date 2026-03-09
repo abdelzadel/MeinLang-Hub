@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: schlafzug-1
 
 TEIL 1 TEXT 1
+
 Viele Tiere können im Winter auf Sparflamme schalten: Igel, Eichhörnchen und viele andere Tiere können das. Wenn es
 draußen kalt wird, gehen sie nämlich in den Winterschlaf. Wäre es nicht schön, wenn wir die kalten Tage ebenfalls einfach
 verschlafen könnten? Ganz so gemütlich, wie man es sich vorstellt, ist der Winterschlaf jedoch nicht, erläutert der Biologe
@@ -14,6 +15,7 @@ ihnen schaden“
 , erklärt Carsten Ortner.
 
 TEIL 1 TEXT 2
+
 Licht kann sich positiv auf die Gesundheit auswirken. Ein kurzer Urlaub in wärmeren Gefilden ist deshalb ein bewährtes
 Mittel gegen den Winterblues. Eine ähnliche Wirkung von Tageslicht und Wärme spielt sich aber auch im Alltag ab. Eine
 Studie der Pariser Sorbonne zeigte, dass Tageslicht nicht nur gut für die Gesundheit und das Wohlbefinden ist, sondern
@@ -23,6 +25,7 @@ Deshalb, so die Forscher, sollte man immer versuchen, Tageslicht als wichtigste 
 nutzen. Zwar müsse dieses Licht durch Kunstlicht ergänzt werden, doch generell sei Sonnenlicht zu bevorzugen.
 
 TEIL 1 TEXT 3
+
 Im Winter würden wir morgens am liebsten lange im Bett bleiben. Je kürzer die Tage, desto schwerer fällt uns das
 Aufstehen. Auch bei der Arbeit kommen wir nur langsam in die Gänge und fühlen uns oft antriebslos. „Das ist völlig
 normal“
@@ -35,6 +38,7 @@ Menschen im Mittelalter folgten diesem natürlichen Programm des Körpers“
 der Uhr, nicht mehr nach der Sonne – künstliches Licht macht das möglich.
 
 TEIL 1 TEXT 4
+
 Verfestigen sich gelernte Vokabeln, während wir schlafen? Ja, das funktioniert tatsächlich! Wer sich viel merken möchte, sollte auf regelmäßige
 Schlafzeiten achten, sagen Schlafforscher. Ob bei Säuglingen, Kindern oder Erwachsenen – im Schlaf prägen sich neue Informationen besser ein.
 „Mehrere Laborstudien zeigen bereits, dass das Schlafverhalten die geistige Leistungsfähigkeit stark beeinflusst“
@@ -44,6 +48,7 @@ im Schulalltag auswirkt. Das Ergebnis: Hatten die Schulkinder gut geschlafen, sc
 besser ab. Besonders wichtig seien regelmäßige Schlafzeiten, auch das zeige die Studie von Maja Kühn.
 
 TEIL 1 TEXT 5
+
 Kürzere Tage, dunkle Wolken, Nieselregen: Die kalte Jahreszeit kann ganz schön aufs Gemüt schlagen und für trübe
 Stimmung sorgen. Sich deshalb zuhause zu verkriechen, wäre aber eine schlechte Idee. Besser: Bewegung im Freien!
 Eine Studie des Bundesministeriums für Wirtschaft und Technologie zeigte, dass Bewegung an der frischen Luft gegen

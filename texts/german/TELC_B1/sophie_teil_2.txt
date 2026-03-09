@@ -3,6 +3,7 @@ LEVEL: TELC_B1
 QUELLE: sophie
 
 TEIL 2 PASSAGE
+
 Eine Ausstellung über die berühmte Fernsehserie
 
 SPEYER. Mit dem Fragebogen in der Hand marschieren die Grundschüler durch das Historische Museum in Speyer. Wie heißt doch noch mal der, der die Maus gezeichnet hat? Fragt Anna. Lisa entdeckt den Namen neben dem Zeichenpult. Friedrich Streich kritzelt sie auf ihr Blatt. Allerdings erst, nachdem sie sich bei einem erwachsenen Ausstellungsbesucher vergewissert hat, dass diese Information auch richtig ist.

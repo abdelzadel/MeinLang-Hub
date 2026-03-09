@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: licht
 
 TEIL 1 TEXT 1
+
 Heute machen die elektrische Beleuchtung in Wohnhäusern, Straßenlaternen, Ampeln, Neonreklame und
 Scheinwerferlicht draußen die Nacht fast zum Tag. Vor der Erfindung der Elektrizität war das anders. Der
 Arbeitsalltag der Mensch wurde von den Jahreszeiten und vom Tageslicht bestimmt. Gearbeitet wurde von
@@ -13,6 +14,7 @@ Streichholzes Feuer entfachte. Es geht um die Bedeutung der Kerzen im bäuerlich
 weitreichenden Umbrüche die Erfindung der Gasbeleuchtung und des elektrischen Lichts mit sich brachte.
 
 TEIL 1 TEXT 2
+
 Jahrelang zog es vor allem junge Berufstätige in die Großstädte -denn diese sind attraktiv,
 bieten umfangreiche Einkaufsmöglichkeiten und einen gut ausgebauten öffentlichen Nahverkehr.
 Doch seit einiger Zeit beobachten Forscher eine gegenläufige Bewegung: Immer mehr
@@ -26,6 +28,7 @@ Wissenschaftler sprechen schon von einer Trendwende, die sich vor allem in den
 Ballungszentren Berlin, Hamburg, München, Frankfurt und Stuttgart abzeichnet.
 
 TEIL 1 TEXT 3
+
 Satellitenbilder der Erde bei Nacht zeigen ein strahlendes Lichtermeer, das sich fast durchgehend
 über den Globus erstreckt. Seit der Erfindung der Glühbime steht Licht für Wohlstand und
 Fortschritt. Die Städte sind nachts hell erleuchtet nicht immer jedoch zum Wohle von Mensch und
@@ -40,6 +43,7 @@ Farbspektren auch den Menschen unbeheligt schlafen lässt. Denn es geht nicht da
 võlig dunkel zu machen. Es geht darum, sie nachhaltiger und intelligenter zu beleuchten.
 
 TEIL 1 TEXT 4
+
 Vor zehn Jahren lebten Dirk und Antje Sebens noch in Mannheim, mitten in der Stadt. Dann
 kauften sie sich ein altes Forsthaus im Wald. Sie hatten es zufällig entdedkt, denn eigentlich hatten
 sie nur einen ruhigen Ort gesucht, um am Wochenende dem Stadtleben entfliehen zu können.
@@ -54,6 +58,7 @@ Wald natürlich nicht. Bereut haben die beiden ihre Entscheidung nie. Noch immer
 als großes Abenteuer, mitten in der Natur zu sein und auf viele Annehmichkeiten zu verzichten.
 
 TEIL 1 TEXT 5
+
 Wer verbringt nicht gerne sein Wochenende fermab der Stadt? Im Grünen, wo es noch Wiesen
 und Schmetterlinge gibt und weder Staus noch Lärm. Viele zieht es gleich ganz aufs Land Doch
 dort braucht man meist ein Auto. Wer nicht im Home-Office arbeiten kann, wird zum Pendler

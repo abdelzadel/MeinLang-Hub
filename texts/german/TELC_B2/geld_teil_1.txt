@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: geld
 
 TEIL 1 TEXT 1
+
 Spardosen sind Sammelbehälter, Dekoration oder Kinderspielzeug – und
 zwar seit Jahrhunderten. Und obwohl bargeldloses Bezahlen immer mehr in
 Mode kommt, sind sie bis heute nicht aus den Kinderzimmern verschwunden.
@@ -19,6 +20,7 @@ Einblicke in die Geldgeschichte bietet. Jährlich lockt es über 13.000 Besucher
 an.
 
 TEIL 1 TEXT 2
+
 Wer beim leisen Klirren von Geldstücken ein prickelndes Gefühl verspürt, ist
 in der neuen Sonderausstellung „Die Sprache des Geldes“ im Berliner Museum
 für Kommunikation richtig. Auf ungewöhnliche Weise nähert sich diese kleine
@@ -37,6 +39,7 @@ Kurator Gregor Isenbrot. „Wenn der Rausch vorbei ist, will der Mensch noch
 mehr. Und zwar mehr Geld.“
 
 TEIL 1 TEXT 3
+
 „Versteh' ich ja doch nicht; ist mir zu kompliziert." So oder ähnlich lauten
 die üblichen Vorbehalte, wenn es darum geht, zu begreifen, wie Wirtschaft
 funktioniert und der Finanzsektor arbeitet. Der englische Journalist John
@@ -54,6 +57,7 @@ Lanchester ermöglicht es dem interessierten Wirtschaftslaien, mitreden zu
 können.
 
 TEIL 1 TEXT 4
+
 Eine neue Untersuchung des Instituts der deutschen Wirtschaft bestätigt
 eine Tatsache, über die sich Sozialwissenschaftler und Psychologen schon lange
 einig sind: Die Höhe des Einkommens allein macht nicht glücklich. Wie
@@ -72,6 +76,7 @@ Kontrollen und sei daher weniger produktiv, sagt sie. Und wer weniger
 produktiv sei, verdiene auf Dauer auch weniger.
 
 TEIL 1 TEXT 5
+
 - Über Geld sprechen viele Deutsche nicht gerne – selbst Verwandte oder
 Lebenspartner haben oft keine Ahnung, was sich auf den Konten ihrer
 Nächsten tut. Dabei spielt Geld bei den meisten Entscheidungen eine wichtige

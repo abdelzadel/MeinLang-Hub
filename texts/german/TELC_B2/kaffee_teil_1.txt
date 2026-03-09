@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: kaffee
 
 TEIL 1 TEXT 1
+
 Das erste Kaffehaus in Leipzig, "Zum arabischen Coffee-Baum", öffnete 1685
 seine Pforten. Seitdem ist der Kaffee in Sachsen zum beliebten Getränk
 geworden, das weder zu Hause auf Party und Feiern noch beim Ausgehen
@@ -19,6 +20,7 @@ möchte: Zahlreiche Kaffeehäuser laden in allen größeren und kleineren
 Städten Sachsens dazu ein, dies auszuprobieren.
 
 TEIL 1 TEXT 2
+
 Eppingen liegt etwa auf halbem Weg zwischen Karlsruhe und Heilbronn im
 Kraichgau, einer geschichtsträchtigen Region mit wunderschöner Landschaft
 und bodenständiger Kultur, die von Erholung suchenden Menschenmassen
@@ -38,6 +40,7 @@ probiert werden. Eppingen ist auch Ausgangspunkt zahlreicher Wanderwege,
 auf denen der Kraichgau zu Fuß erkundet werden kann.
 
 TEIL 1 TEXT 3
+
 Das Kloster Maulbronn wurde 1147 von Zlsterziensermönchen gegründet.
 Man sagt, ein Maulesel, den die Mönche auf ihren Wanderungen mitgeführt
 hatten, solle hier einen Brunnen gefunden haben und man habe daraufhin
@@ -56,6 +59,7 @@ vorherrschte. Hermann Hesse hat die Klosteranlage später in seinen Romanen
 "unterm Rad" und "Narziß und Goldmund" zum Schauplatz gemacht.
 
 TEIL 1 TEXT 4
+
 Auf einer Anhöhe oberhalb des Bodensees hegt, ca. 10 km vorn See entfernt
 in idyllischer ländlicher Umgebung, das ehemalige Zisterzienserkloster
 Salem.Innerhalb der weitläufigen Klosteranlage aus dem 12. Jahrhundert
@@ -75,6 +79,7 @@ Bundespräsident Theodor Heuss ging hier ebenso zur Schule wie der
 Ehemann der britischen Königin Elisabeth II., Prinz Philipp.
 
 TEIL 1 TEXT 5
+
 Vermutlich vor fast 900 Jahren, irgendwann im dreizehnten Jahrhundert,
 sollen die Menschen herausgefunden haben, was es mit dem Kaffee auf sich
 hat. Eine Legende erzählt von einem jemenitischen Ziegenhirten, dessen

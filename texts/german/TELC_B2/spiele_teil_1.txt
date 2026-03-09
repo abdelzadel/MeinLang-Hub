@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: spiele
 
 TEIL 1 TEXT 1
+
 Die erste Kosener Puppenfabrik wurde 1912 von Kathe Kruse gegründet. 80
 Jahre später übernahm der Unternehmer Helmut Schache die traditionsreiche
 Spielzeugmanufaktur in Sachsen-Anhalt, seit dem wird sie von seiner Familie
@@ -19,6 +20,7 @@ neue Tiere bringt die Kösener Spielzeugmanufaktur jedes Jahr auf den Markt.
 Verkauft werden sie in 25 Ländern.
 
 TEIL 1 TEXT 2
+
 Die Modelleisenbahn hat auch im Computerzeitalter ihre Anziehungskraft
 nicht verloren. Bis heute bring sie die Augen von grofien und kleinen
 Eisenbahnfans zum Leuchten. Doch ihre ersten Erfolge feierte sie schon vor la
@@ -34,6 +36,7 @@ Sammelobjekt. Gewiss werden die Miniatureisenbahnen noch lange durch
 Kinderzimmer und Hobbykeller rattern.
 
 TEIL 1 TEXT 3
+
 Gedruckten Büchern wurde vor einigen Jahren von Experten ein schnelles
 Ende- vorausgesagt. Das papierlose Lesen sei die Zukunft, hieß es. Höchstens
 als Nischenprodukt könnten Bücher noch existieren. Doch schon wenig später
@@ -50,6 +53,7 @@ Riefenberg. Nimmt man das Taschenbuch in die Hand, das man am Strand
 gelesen hat, fühlt man sich gleich wieder in den Sommerurlaub zurückversetzt. Gegenstände wecken also Erinnerungen – das werden sie digitalen Produkten immer voraushaben.
 
 TEIL 1 TEXT 4
+
 Immer neue Spielekonsolen, Spielformate und Apps drängen auf des -
 elektronischen Spielemarkt und dennoch haben Brettspiele nie an Bedeutung
 verloren. Die Hersteller vermelden sogar Jahr für Jahr steigende Umsätze. Was
@@ -65,4 +69,5 @@ Spielen in analogen statt digitalen Welten steigert also Zufriedenheit and
 Gemeinschaftsgefühl.
 
 TEIL 1 TEXT 5
+
 Jahr für Jahr gehört der Umsatz der Spielzeughersteller. Und das ist auch kein Wunder: Denn kaum etwas erfreut Eltern mehr als die leuchtenden Augen der Kinder, wenn sie ein neues Spielzeug bekommen. Und so sind die Schränke und Spielzeugkisten der lieben Kleinen voll mit Puppen, Kuscheltieren und Autos. Doch das hat auch unerwünschte Folgen. Wenn ein Kind zu viel Spielzeug hat, wird sich seine Phantasie nicht weiterentwickeln“, warnt Spielforscher Jens Junge. Deshalb verzichten manche Kindergärten auf überflüssiges Spielzeug. Im Berlin Musikkindergarten zum Beispiel quillt kaum ein Regeln über – und trotzdem wird den Kindern hier nie langweilig. Es gibt Musikinstrumente, Bastelmaterialien und auch Spielzeug – aber nie zu viel, sodass die Kinder nicht überfordert sind. Es komme für die Kinder gar nicht so darauf an, womit sie spielen, sondern vor allem mit wem, betont Mitarbeiterin Lara Schwarz. Das gemeinsame mit Freunden sei für Kinder sowieso am wichtigsten.

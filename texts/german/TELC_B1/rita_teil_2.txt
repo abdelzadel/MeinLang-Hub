@@ -3,6 +3,7 @@ LEVEL: TELC_B1
 QUELLE: rita
 
 TEIL 2 PASSAGE
+
 Von Antje Blinda
 Coz-Ausstoß: null. Geplante Strecke: einmal um die Welt. Endlich wird der Traum von Louis Palmer wahr: Der Schweizer startet mit seinem Auto, das mit Sonnenenergie fährt, zur Weltumrundung. Er will damit zeigen, dass Autofahren auch geht, ohne der Umwelt zu schaden.
 

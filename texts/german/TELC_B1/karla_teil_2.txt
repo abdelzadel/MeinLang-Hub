@@ -3,6 +3,7 @@ LEVEL: TELC_B1
 QUELLE: karla
 
 TEIL 2 PASSAGE
+
 Seit einiger Zeit hört man immer wieder, dass Bienen vom Aussterben bedroht sind. Welche Folgen hat dies für die Menschheit und was wird dagegen unternommen?
 
 Bienen spielen eine sehr wichtige Rolle für unsere Umwelt. Weltweit stirbt seit Jahren ein großer Teil der Bienenbevölkerung. Warum so viele Bienen sterben, lässt sich nicht so einfach sagen. Hier spielen mehrere Faktoren eine Rolle, wie zum Beispiel der Gebrauch von Pestiziden in der Landwirtschaft, fehlende Wiesen und Grünflächen, Luftverschmutzung und Klimawandel.

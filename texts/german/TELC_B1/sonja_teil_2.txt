@@ -3,6 +3,7 @@ LEVEL: TELC_B1
 QUELLE: sonja
 
 TEIL 2 PASSAGE
+
 Etwa 300.000 Menschen in der Schweiz haben zwar die Schule besucht, können aber dennoch nicht richtig lesen und schreiben. Einige holen das Versäumte später nach.
 
 Von Gabriela Baumgartner

@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: umwelt
 
 TEIL 2 PASSAGE
+
 Die Schaufensterpuppe ist eine Pariserin und hatte erstmals 1849 in der Hauptstadt der Mode ihren Auftritt. Der französische Schneider Alexis Lavigne gilt als ihr Erfinder, auch wenn er damals seine Kleiderkreationen noch auf einer Schneiderpuppe vorführte.
 
 Bald schon taten es ihm andere Pariser Kollegen gleich.

@@ -3,17 +3,22 @@ LEVEL: TELC_B1
 QUELLE: alex-und-cora
 
 TEIL 1 TEXT 1
+
 Sie haben Mitarbeiter, die gern mit dem Fahrrad zur Arbeit kommen? Warum dann nicht mehr E-Bikes leasen statt nur teure Firmenwagen? Gerade In Städten kommt man mit einem E-Bike schneller und bequemer ans Ziel als mit dem Auto. Und Parkplatzprobleme gibt es auch nicht. Sie fördern zudem die Gesundheit Ihrer Mitarbeiter und schonen die Umwelt, und dabei können Sie noch Steuern sparen.
 Bei der BikeLaasing GmbH bekommen Sie Angebote, die zu Ihnen passen. Melden Sie sich bei uns an, und wir kümmern uns um den Rest
 
 TEIL 1 TEXT 2
+
 Die Bahn erhöht dieses Jahr die Ticketipreise nicht. Dies soll die Bahn attraktiver machen, sodass mehr Menschen die Züge nutzen. Ob dies wirklich erfolgreich ist, bestreiten manche Experten. Sie argumentieren, dass das Auto in Deutschland zu beliebt ist. Günstiger werden außerdem die Tickets im öffentlichen Nahverkehr, weil dann nicht mehr so viele Berufstätige mit. dem Auto zur Arbeit fahren. Ob diese Maßnahmen wirklich erfolgreich sind, wird sich zeigen. Experten sind sich einig: Ein Schritt in die richtige Richtung!
 
 TEIL 1 TEXT 3
+
 Vergangeren Monat wurden etwa tausend Eltern von der Stiftung Schulqualität befragt, ob sie mit der Schule ihrer Kinder zufrieden sind. Dabei sagten 80%, dass die Schule gut oder sogar sehr gut sei. Und das, obwohl nur 40% der Eitern denken, dass die Kinder in der Schule auf den Beruf vorbereitet werden. Die Schülerinnen und Schüler sollten mehr über Ökonomie lernen. Außerdem sagten über 60%, dass das Thema Umweltschutz im Unterricht eine größere Rolle spielen sollte.
 
 TEIL 1 TEXT 4
+
 Berlin. in der Hauptstadt herrscht weiterhin Lehrermangel: Tausende Lehrkräfte fehlen. Mittlerweile unterrichten sogar schon Studie- rende die Schülerinnen und Schüler der Haupt- stadt, weil sich nicht genügend ausgebildete Lehrkräfte finden. Die Unterrichtsqualität lei- det stark. Daher plant der Berliner Senat eine Werbekampagne, um den Lehrerberuf attrakti- ver zu gestalten. Dabei sollen auch Menschen in anderen Berufen angesprochen werden, die denkt man über eine Erhöhung der Gehälter für Lehrerinnen und Lehrer nach.
 
 TEIL 1 TEXT 5
+
 KaturVerband ist der größte Umweltverband in Deutschland. Er engagiert sich für Umwelt- und Tierschutz. Sie wollen sich auch aktiv gegen Umweltverschmutzung einsetzen? Sie wöllen sich für mehr Naturschutz engagieren? ‚Dann sind Sie bei uns richtig. Wir haben regelmäßige Treffen und führen Informationsveran- staltungen zu verschiedenen aktuellen Themen durch, außerdem gibt es eine monatliche Mit- gliederzeitschrift, Melden Sie sich einfach bei uns.

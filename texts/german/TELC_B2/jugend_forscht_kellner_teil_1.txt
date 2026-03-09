@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: jugend-forscht-kellner
 
 TEIL 1 TEXT 1
+
 Die Zahlen wirken auf dem ersten Blick dramatisch:
 15 Prozent der Kinder sind übergewichtig und
 davon sechs Prozent sogar fettleibig. Der
@@ -30,6 +31,7 @@ stumpfen Seite des Messers oder wissen nicht, wie
 heißt die Pfanne beim Kochen wird”.
 
 TEIL 1 TEXT 2
+
 Immer mehr Mädchen leiden an schweren Essstörungen - und das, obwohl Ärzte und Fachleute seit Jahren
 vor den negativen Folgen des Schlankheitswahns warnen. Die Kinder- und Jugendpsychiatrie im
 Kinderkrankenhaus in Hannover schlägt jetzt Alarm. “Allein in den letzten zwei Jahren hat die Nachfrage für
@@ -45,6 +47,7 @@ geplant zwei Kilo abgenommen, sondern dreizehn. So zieht Gerd Kuznik nicht nur i
 Mit einer harmlosen Diät fängt es meist an, mit einer schweren Krankheit kann es enden.
 
 TEIL 1 TEXT 3
+
 Energiesparlampen, umweltfreundliche Elektrogeräte, Bio-Nagellack - sieht man sich die Themen an, mit denen
 sich die Teilnehmer des 46. Regionalwettbewerbs ”Jugend forscht” beschäftigt haben, wird vor allem eines klar:
 Das ökologische Bewusstsein hat die Klassenzimmer erreicht.
@@ -59,6 +62,7 @@ Umwelt wichtig sind”, sagt Yara-Alessandra. Die Jury honorierte das Projekt mi
 Gewinner bereiten sich nun auf den Landeswettbewerb “Jugend forscht” vor.
 
 TEIL 1 TEXT 4
+
 13,5 Meter lang und leuchtend gelb - die “Aldebaran” zieht die Blicke im Jachthafen auf
 sich. Für drei Schüler aus Diepholz ist ein Traum wahr geworden. Als Meeresforscher auf
 See arbeiten sie an einem eigenen Forschungsprojekt. Sie nehmen am
@@ -78,6 +82,7 @@ aber schon gefunden. “Es sieht so aus, dass wir Ergebnisse kriegen, die gut f�
 Projekt sind - aber nicht gut für die Umwelt”.
 
 TEIL 1 TEXT 5
+
 Mobbing ist kein neues Phänomen. Es ist auch in Schulen weitverbreitet. Da spricht zum
 Beispiel eine Lehrerin vor der Klasse negativ über eine Schülerin, weil sie etwas nicht
 versteht oder immer wieder krank ist. Oder die Mitschüler lachen oder lassen

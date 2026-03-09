@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: keine-zeit
 
 TEIL 2 PASSAGE
+
 "Google Earth" – das digitale Abbild der Erde mit Satelliten- und Luftbildern, ist seit 2006 im Internet. Und es gibt auch eine deutsche Version. Ohne langes Training, gewissermaßen von einer Sekunde zur anderen, wird man mit „Google Earth“ zum Weltraumfahrer und Astronauten. Der Computer ersetzt das Weltraumschiff, die Computermouse den Steuerknüppel. Nutzer können sich auf einen Kontinent, ein Land, eine Stadt, sogar aufs eigene Haus oder in die Fußballstadien des Landes zoomen: inzwischen gibt es „Google Earth“ in einer völlig neuen Version – mit viermal mehr Daten als bisher und erstmals auch in deutscher Sprache.
 
 „Deutschland ist unser wichtigster Standort“, sagte John Hanke, Leiter von Googles Keyhole-Gruppe. Keyhole, dessen Chef Hanke bis zur Übernahme durch Google im Oktober 2004 war, hat die Software für „Google Earth“ entwickelt. „Rund ein Fünftel der Erde – auf dieser Fläche wohnt fast die Hälfte der Weltbevölkerung – haben wir jetzt dargestellt. Viermal so viele Daten wie bisher“. Deutschland sei weltweit das einzige Land, das komplett hochauflösendes, also besonders genau abbildendes Material zur Verfügung stellt, erklärt Hanke. Ein Bildpunkt (Pixel) entspricht dabei 15 Metern auf der Erde. Größere deutsche Städte beispielsweise werden in der höchstmöglichen Auflösung sogar mit zehn Zentimetern pro Pixel dargestellt. Kleinere Städte jedoch, wie etwa Hameln, sind nach wie vor sehr grob dargestellt.

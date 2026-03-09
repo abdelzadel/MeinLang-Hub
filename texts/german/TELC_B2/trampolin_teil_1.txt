@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: trampolin
 
 TEIL 1 TEXT 1
+
 Die meisten Menschen verbinden den Begriff „Barrierefreiheit" mit dem
 Zugang zu Gebäuden oder Transportmitteln. Dabei betrifft Barrierefreiheit viel
 mehr Bereiche unseres Alltags, so zum Beispiel auch die Informations und
@@ -21,6 +22,7 @@ ist. Der Nachrichtendienst wurde bereits als Innovativer Beitrag zum Thema
 Barrierefreiheit ausgezeichnet.
 
 TEIL 1 TEXT 2
+
 Die WOH, die Weltgesundheitsorganisation warnt vor den Folgen
 „ungesunder" Werbung im Internet. Kinder und Jugendiche treffen beim
 Nutzen der Sozialen Medien häufig auf Anzeigen für ungesunde Lebensmittel
@@ -38,6 +40,7 @@ Kinder, die jünger als zwei Jahre sind, grundsätzlich nicht vor ein Tablet ode
 einen PC gesetzt werden. Denn wer viel sitzt, wird in der Folge leichter krank.
 
 TEIL 1 TEXT 3
+
 Schülerinnen und Schüler sollen im Schulunterricht auch den Umgang mit
 Nachrichten lernen. Das forderten kürzlich in Wein die Teilnehmenden an einer
 Konferenz zur politischen Bildung von Jugendlichen. Das Ziel dabei ist, jungen
@@ -55,6 +58,7 @@ Am besten eignen sich die Unterrichtsfächer Politische Bildung, Geschichte ind
 Deutsch oder Englisch, so die Expertenrunde.
 
 TEIL 1 TEXT 4
+
 Mit dem Trampolin den Körper in Schwung bringen für viele Menschen ist
 das Sprunggerät eine gute Möglichkeit, sich mit viel spaß und ohne allzu großen
 Aufwand zu bewegen. Besonders beleibt ist das Trampolin bei Kindern.
@@ -70,4 +74,5 @@ Voraussetzungen, Viele Sportvereine bieten Kurse an, in denen Kinder sicheres
 Trampolinspringen lernen können.
 
 TEIL 1 TEXT 5
+
 Die Klage, dass Jugendliche und Junge Erwachsene kein Interesse mehr an Nachrichten haben, ist unbegründet. So lautet zumindest eine der Schlussfolgerungen aus einer Studie zum durchschnittlichen Medienkonsum junger Menschen mit dem Schwerpunkt Nachrichten. Demnach lesen oder hören in Österreich nahezu 50% der Personen unter 30 Jahren täglich Nachrichten. Viele der Befragten gaben an, dass sie sich nicht auf die Inhalte der Sozialen Medien verlassen möchten, da ihre Glaubwürdigkeit oft angezweifelt wird. Den klassischen Medien wie Nachrichtensendungen oder Tageszeitungen wird hingegen eher geglaubt. Soziale Netzwerke können herkömmliche Nachrichtenquellen nicht ersetzen, so die vorherrschende Meinung auch wenn diese Quellen in der Gestaltung oft als eher langweilig empfunden werden.

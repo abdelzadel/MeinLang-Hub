@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: benzin
 
 TEIL 1 TEXT 1
+
 Aussteigen, tanken, wegfahren: Wenn die
 Benzinpreise steigen, ist wieder Hochsaison bei den
 Benzindieben. Früh morgens und abends schlagen
@@ -30,6 +31,7 @@ Ausreden. Polizeihauptkommissar Werner Knips:
 Und dann wird es richtig teuer.”
 
 TEIL 1 TEXT 2
+
 Viele Autofahrer, die in einen Unfall verwickelt sind, sind so aufgeregt, dass sie vergessen, was zu tun ist. Der
 Versicherungsexperte Klaus Lenhoff gibt die wichtigsten Tipps:
 1. Unfallstelle absichern: Warnblinkanlage einschalten und Warndreieck in 100 Metern Entfernung aufstellen.
@@ -49,6 +51,7 @@ Aussagen unter Druck machen.
 10. Versicherung des Unfallgegners ermitteln.
 
 TEIL 1 TEXT 3
+
 Hast du schon mal mit dem Gedanken gespielt, Pilotin zu werden? Nicht? Dann geht es euch
 wahrscheinlich wie den meisten Mädchen oder Frauen. Warum wollen eigentlich so wenige Frauen
 Pilotinnen werden? Nur weil der Beruf angeblich ein typischer Männerberuf ist? Wir haben eine Pilotin
@@ -64,6 +67,7 @@ Beruf tätig bin”, erklärt sie. Hat sie noch Träume? “Aber ja!", sagt Moni
 Weltall fliegen, um die Erde als Kugel zu sehen und das Gefühl absoluter Schwerelosigkeit zu erleben”.
 
 TEIL 1 TEXT 4
+
 Der Schweizer Louis Palmer hat eine Weltumrundung mit seinem "Solartaxi" fast
 abgeschlossen. Er habe bereits 47000 km mit seinem Solarauto zurückgelegt, sagte
 Palmer bei einem Stopp in Paris. ”Nun habe ich fast den ganzen Planeten umrundet, ohne
@@ -80,6 +84,7 @@ saßen schon berühmte Persönlichkeiten aus Politik, Wirtschaft und Showgeschä
 "Solartaxi".
 
 TEIL 1 TEXT 5
+
 Die Bundesregierung und ihre Spitzenbeamten sind auf Dienstreisen gern mit dem
 Flugzeug unterwegs - aber nicht nur, wenn es um Fernreisen geht, sondern auch bei
 kurzen Inlandsreisen. Wie aus der Antwort des Innenministeriums auf eine Frage eines

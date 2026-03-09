@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: insekten-1
 
 TEIL 1 TEXT 1
+
 Die anhaltend außergewöhnlich hohen Temperaturen haben im Süden Frankreichs eine Tierplage unbekannten
 Ausmaßes ausgelöst. Bei den Plagegeistern handelt es sich um Unmengen von zwei bis dreieinhalb Zentimeter
 langen Heuschrecken, den sogenannten Roten Schnarrschrecken.Die dunklen Insekten fressen Felder und Wiesen
@@ -20,6 +21,7 @@ Insekten. Auch das Vieh der Bauern darf nicht durch verseuchtes Futter gefährde
 Nachricht: Für Menschen und andere Tiere sind die Heuschrecken völlig ungefährlich.
 
 TEIL 1 TEXT 2
+
 Für immer wird eine der größten Umweltkatastrophen mit dem Namen des damals in Basel
 ansässigen Chemiekonzerns Sandoz verbunden bleiben, der heute zu Novartis gehört. Im Jahr 1986 führte
 ein Brand in einer Lagerhalle des Konzerns zu einer Verunreinigung des Rheins mit 20 Tonnen hochgiftiger
@@ -38,6 +40,7 @@ Verbraucherschutzministerium des Landes Nordrhein-Westfalen vor dem Verzehr von 
 unterhalb von Duisburg, weil Tenside durch die Nebenflüsse Möhne und Ruhr in den Rhein gelangt waren.
 
 TEIL 1 TEXT 3
+
 Der Klimawandel in Verbindung mit der Globalisierung führt dazu, dass in Deutschland zunehmend
 Tiere heimisch werden, die hier zuvor nicht beobachtet wurden. Zu diesen Neuankömmlingen gehören
 auch exotische Stechmücken, wie beispielsweise der japanische Buschmoskito. Mit den exotischen
@@ -56,6 +59,7 @@ unter anderem das gefährliche Denguefieber verbreitet, schaffte es 2018 in die 
 Rhein gefunden wurde.
 
 TEIL 1 TEXT 4
+
 Forscher haben bei Versuchen im Bronx Zoo in New York eine neue Erkenntnis über Elefanten erlangt: Sie können sich selbst
 im Spiegel erkennen. Zumindest eines von den Versuchstieren versuchte, einen auf seinem Kopfe aufgemalten Fleck, der im
 Spiegelbild zu sehen war, zu entfernen. Bisher war nur anderen von Affen, Delphinen und Elstern ein ähnliches Verhalten
@@ -76,6 +80,7 @@ eindeutigen Beweis für die Fähigkeit zur Selbsterkenntnis. Als Nächstes wolle
 natürlichen Umgebung weiter erforschen.
 
 TEIL 1 TEXT 5
+
 Heute und morgen tagt in Göteborg die Internationale Nordseekonferenz (INK), an der Regierungsvertreter der acht
 Nordsee-Anrainerstaaten teilnehmen. Der World Wide Fund For Nature (WWF) kritisierte in diesem Zusammenhang,
 dass dies das letzte Treffen dieser Art sei. Künftig sollen Fragen der Nordsee auf europäischer Ebene behandelt werden.

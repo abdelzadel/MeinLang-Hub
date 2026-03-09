@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: namssa
 
 TEIL 1 TEXT 1
+
 Das Lesemagazin MENU hat eine Umfrage zu den populärsten Märkten in Osterreich
 durchgeführt, Vor der eigentlichen Abstimmung hatte das Magazin seine Leserinnen und
 Leser dazu aufgerufen, Markte zu nominieren,Aus den häufigsten Nennungen hat das
@@ -17,6 +18,7 @@ Abstimmung zeigt laut MENU, wie sehr die Konsumentinnen und Konsumenten Märkte
 schätzen.
 
 TEIL 1 TEXT 2
+
 Sie sind der Meinung, dass Ihre Qualifikationen ausreichen, um Karriere zu machen?
 Qualifikationen und Berufserfahrung sind zwar wichtige Kriterien für den erfolgreichen
 Aufstieg auf der Karriereleiter,doch ohne gutes Selbstmarketing werden Sie auf halbem
@@ -30,6 +32,7 @@ machen. U Achtung: Angeber mag niemand! Wie Sie das richtige MaB finden, erfahre
 einem Seminar, das an vier Wochenenden mi April ni Klagenfurt stattfindet
 
 TEIL 1 TEXT 3
+
 Der Wiener Naschmarkt gehört zu Österreichs beliebtesten Märkten, Mit einer Fläche von
 mehr als zwei Hektar ist er der größte Markt in der Innenstadt. Schon 1780 handelten
 Bauern dort mit Milchprodukten. Gemauerte Marktstände entstanden erst mehr als 100
@@ -45,6 +48,7 @@ Einkaufstipps und Beschreibungen der Lokale. „Der Markt am Wienfluss", Hrsg. H
 Ortner, 35 Seiten, 17 Euro.
 
 TEIL 1 TEXT 4
+
 Wer bloggt, zeigt neben Fachkompetenz auch Kreativität. Das schätzen auch Arbeitgeber.
 Ob man über fachliche Fragestellungen schreibt oder einfach nur über das Leben das
 Themenspektrum von Blogs ist riesig. Genauso vielfältig sind auch die Möglichkeiten, die sie
@@ -57,6 +61,7 @@ erscheinen lassen. Bloggen während der Arbeitszeit und das Schreiben über Blog
 und Bloggern, in ihren Firmeninterna sind natürlich tabu,
 
 TEIL 1 TEXT 5
+
 Bis Herbst soll ein neues Marktkonzept für den altehrwürdigen Salzburger Grünmarkt
 vorliegen. Damit der Markt für Besucherinnen und Besucher wieder attraktiver wird, setzt
 die zuständige Stelle im Magistrat auf Nachhaltigkeit, Biologische Lebensmittel aus

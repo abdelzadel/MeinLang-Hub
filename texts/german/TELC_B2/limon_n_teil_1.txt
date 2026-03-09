@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: limon-n
 
 TEIL 1 TEXT 1
+
 Dann suchen Sie bei Ihrem nächsten Einkauf im Supermarkt nach Sauerstoff-Mineralwasser. Für den
 etwa doppelten Preis eines normalen Mineralwassers erhalten Sie dann ein Getränk, von dem die
 Hersteller versprechen, dass es Ihnen – natürlich nur, wenn Sie es regelmäßig trinken – magische Kräfte
@@ -15,6 +16,7 @@ Sie immer noch Kraft, Jugend und Gesundheit? Dann gehen Sie doch einfach mehr an
 die ist kostenlos.
 
 TEIL 1 TEXT 2
+
 Wenn es regnet, dann fließt das Regenwasser in den Erdboden, der es wie ein Schwamm aufsaugt.
 Langsam sickert das Wasser dann in immer tiefere Erdschichten, in denen es gefiltert und gereinigt wird.
 Aus dem Regenwasser ist Trinkwasser geworden. Schließlich sammelt es sich in einer Schicht aus
@@ -27,6 +29,7 @@ gelangt in den letzten Jahrzehnten Nitrat durch übermäßige Düngung in der La
 das Trinkwasser und stellt langfristig eine Gesundheitsbedrohung für die Menschen dar.
 
 TEIL 1 TEXT 3
+
 Nach den Unwettern des letzten Sommers sprechen Meteorologen in ganz Europa davon, dass sich
 das Klima weltweit dramatisch verändert. Stabile Sommer mit ununterbrochenem Sonnenschein von Juni
 bis August sollen selbst am Mittelmeer in Zukunft der Vergangenheit angehören. Die durch Treibhausgase
@@ -40,6 +43,7 @@ einen großen Teil der Ernte und bringen so manchen landwirtschaftlichen Betrieb
 Schwierigkeiten.
 
 TEIL 1 TEXT 4
+
 Wozu noch Kisten mit Mineralwasserflaschen nach Hause schleppen, wenn es sich doch bequem zu
 Hause zubereiten lässt? Tatsächlich ist das Leitungswasser, das aus den Wasserhähnen in deutschen
 Wohnungen fließt, von guter bis sehr guter Qualität. Einzig das Prickeln auf der Zunge, das durch das
@@ -50,6 +54,7 @@ mit mehr, mal mit weniger Prickeln, mal süßer, mal fruchtiger. Und das Wasser 
 Haus, das Tragen und Stapeln von Getränkekisten ist für den cleveren Selbsthersteller Vergangenheit.
 
 TEIL 1 TEXT 5
+
 "Wasser ist zum Waschen da", lautete ein deutscher Schlager Mitte der 1950er Jahre, in dem es
 weiter hieß: "Auch zum Zähneputzen kann man es benutzen." Wasser zu trinken schien damals manchen
 Leuten nicht in die neue Wohlstandswelt zu passen. Süße Limonaden galten als besser als einfach nur

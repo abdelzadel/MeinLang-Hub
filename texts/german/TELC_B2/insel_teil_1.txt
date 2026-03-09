@@ -3,6 +3,7 @@ LEVEL: TELC_B2
 QUELLE: insel
 
 TEIL 1 TEXT 1
+
 Die Shengsi-Inseln liegen im
 Ostchinesischen Meer. Nicht einmal 20
 der rund 400 Inseln sind bewohnt, und
@@ -31,9 +32,11 @@ reicht. An diesem Ort lebt keine
 Menschenseele mehr.
 
 TEIL 1 TEXT 2
+
 Der Reiseveranstalter TOURIMARS hat kürzlich eine Befragung durchgeführt. Er wollte wissen, welche Inseln in Europa unter Reisenden besonders populär sind. Nach dieser Umfrage führt die griechische Insel Santorin die Liste an. Auf Platz zwei steht Madeira, die grüne Insel im Atlantik. Mit Kreta und Zakynthos schaffen es an dritter und vierter Stelle noch zwei weitere griechische Inseln in die Liste – übrigens wird die Attraktivität griechischer Inseln auch in anderen Umfragen bestätigt. Platz fünf nimmt die Badeinsel Fuerteventura ein. Rang sechs kommt der britischen Kanalinsel Jersey zu. Mallorca folgt auf Platz sieben, gefolgt von der italienischen Insel Capri und der Kanareninsel Teneriffa. Gerade noch in die Top Ten schaffte es auch die französische Mittelmeerinsel Korsika, die sowohl für Wanderer als auch für Badeurlauber interessant ist. Für die Umfrage waren Erfahrungsberichte von Urlaubern über einen Zeitraum von 12 Monaten ausgewertet worden. Sie bewerteten dabei die Hotels, Restaurants und Sehenswürdigkeiten der besuchten Insel.
 
 TEIL 1 TEXT 3
+
 Das ostfriesische Memmert ist für selten Vögel reserviert. Auf der Düneninsel, die vor ein paar
 Jahrhunderten aus der Nordsee aufgetaucht ist, leben Zigtausende von Vögeln. Nur der Inselvogt
 lebt zeitweise dort. Von Anfang März bis Ende Oktober ist der Forscher das einzige menschliche
@@ -47,6 +50,7 @@ einen Besuch, aber ausschließlich im Rahmen einer geführten Expedition. Nur mi
 Experten dürfen sie die Düneninsel im Wattenmeer erkunden.
 
 TEIL 1 TEXT 4
+
 Die südamerikanischen Galapagosinseln locken nicht mit weißen Sandstränden
 und Palmen. Dennoch sind sie das Ziel so mancher Reisesehnsüchte. Für viele
 Menschen gelten die fernen Inseln als eine Art Paradies. Und tatsächlich kommt
@@ -63,6 +67,7 @@ Inseln und ihre Tiere bleiben sich selbst überlassen, damit das Naturparadies a
 weiterhin erhalten bleibt.
 
 TEIL 1 TEXT 5
+
 Dass Elefanten in Thailand teurer sein können als ein 3er-BMW in München, liegt an
 ihrem enormen wirtschaftlichen Potenzial: Sie sind eine der Hauptattraktionen der
 thailändischen Tourismusindustrie. Jeder dritte Besucher des Landes möchte mit
