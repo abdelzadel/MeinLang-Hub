@@ -12,46 +12,38 @@
       <p>Browse open texts by language and category</p>
     </header>
 
-    <main class="layout" aria-label="Text browser">
-      <section class="panel controls-panel" aria-labelledby="browse-title">
-        <h2 id="browse-title">Browse</h2>
-
-        <div class="field">
-          <label for="languageSelect">Language</label>
-          <select id="languageSelect">
-            <option value="">Select a language</option>
-          </select>
+    <main class="app" aria-label="Mein Lang Hub Browser">
+      <section class="panel browser-panel" aria-labelledby="stepTitle">
+        <div class="panel-head">
+          <button id="backButton" class="back-button" type="button" hidden>
+            Back
+          </button>
+          <div>
+            <p id="stepLabel" class="step-label">Step 1 of 3</p>
+            <h2 id="stepTitle">Select a language</h2>
+          </div>
         </div>
 
-        <div class="field">
-          <label for="subfolderSelect">Category</label>
-          <select id="subfolderSelect" disabled>
-            <option value="">Select a category</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="searchInput">Search texts</label>
+        <div class="search-group">
+          <label for="searchInput">Search</label>
           <input
             id="searchInput"
             type="search"
-            placeholder="Type to filter text names"
+            placeholder="Search current list"
             autocomplete="off"
-            disabled
+            aria-describedby="stepHint"
           />
+          <p id="stepHint" class="hint-text">Choose a language card to continue.</p>
         </div>
 
-        <section class="files-section" aria-labelledby="files-title">
-          <h3 id="files-title">Texts</h3>
-          <ul id="fileList" class="file-list" aria-live="polite"></ul>
-          <p id="listPlaceholder" class="placeholder">
-            Select a language and category to see available texts.
-          </p>
-        </section>
+        <div id="cardGrid" class="card-grid" role="list" aria-live="polite"></div>
+        <p id="cardsPlaceholder" class="placeholder" hidden>
+          No items to show.
+        </p>
       </section>
 
-      <section class="panel reader-panel" aria-labelledby="reader-title">
-        <h2 id="reader-title">Reader</h2>
+      <section class="panel reader-panel" aria-labelledby="readerTitle">
+        <h2 id="readerTitle">Reader</h2>
 
         <div class="selection-summary" aria-live="polite">
           <p><strong>Language:</strong> <span id="selectedLanguage">None</span></p>
@@ -60,7 +52,7 @@
         </div>
 
         <article id="contentArea" class="content" tabindex="0">
-          Select a text to read its content here.
+          Select a text card in step 3 to read content here.
         </article>
       </section>
     </main>
