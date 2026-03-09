@@ -147,8 +147,16 @@ input[type="search"] {
 }
 
 .card-main {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
   font-weight: 600;
+}
+
+.flag-icon {
+  width: 1.2em;
+  border-radius: 2px;
+  flex: 0 0 auto;
 }
 
 .card-sub {

@@ -21,16 +21,16 @@ const VIEW = {
 };
 
 const LANGUAGE_FLAGS = {
-  english: "🇬🇧",
-  arabic: "🇸🇦",
-  french: "🇫🇷",
-  german: "🇩🇪",
-  spanish: "🇪🇸",
-  italian: "🇮🇹",
-  portuguese: "🇵🇹",
-  chinese: "🇨🇳",
-  japanese: "🇯🇵",
-  turkish: "🇹🇷",
+  english: "gb",
+  arabic: "sa",
+  french: "fr",
+  german: "de",
+  spanish: "es",
+  italian: "it",
+  portuguese: "pt",
+  chinese: "cn",
+  japanese: "jp",
+  turkish: "tr",
 };
 
 const state = {
@@ -85,7 +85,8 @@ async function renderLanguages() {
     currentCards = languages.map((language) => ({
       key: language,
       search: language.toLowerCase(),
-      main: `${getLanguageFlag(language)} ${formatLabel(language)}`,
+      main: formatLabel(language),
+      flagCode: getLanguageFlagCode(language),
       sub: "Open language folder",
       active: false,
     }));
@@ -492,7 +493,17 @@ function renderCards() {
 
     const main = document.createElement("span");
     main.className = "card-main";
-    main.textContent = card.main;
+
+    if (card.flagCode) {
+      const flag = document.createElement("span");
+      flag.className = `fi fi-${card.flagCode} flag-icon`;
+      flag.setAttribute("aria-hidden", "true");
+      main.appendChild(flag);
+    }
+
+    const label = document.createElement("span");
+    label.textContent = card.main;
+    main.appendChild(label);
 
     const sub = document.createElement("span");
     sub.className = "card-sub";
@@ -570,8 +581,8 @@ function formatLabel(value) {
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-function getLanguageFlag(language) {
-  return LANGUAGE_FLAGS[language.toLowerCase()] || "🌐";
+function getLanguageFlagCode(language) {
+  return LANGUAGE_FLAGS[language.toLowerCase()] || "";
 }
 
 backButton.addEventListener("click", () => {
