@@ -29,6 +29,7 @@ const importCloseButton = document.getElementById("importCloseButton");
 
 const ROOT_FOLDER = "texts";
 const STATIC_INDEX_FILE = `${ROOT_FOLDER}/catalog.json`;
+const DEFAULT_SUBFOLDER_IMAGE = "assets/default-subfolder-img.jpeg";
 const IMPORT_MAX_FILES_PER_REQUEST = 20;
 const IMPORT_MIN_FILES_PER_REQUEST = 1;
 const VIEW = {
@@ -248,9 +249,11 @@ async function renderSubfolders(language) {
     currentCards = subfolders.map((subfolder) => ({
       key: subfolder,
       search: subfolder.toLowerCase(),
-      main: `📁 ${formatLabel(subfolder)}`,
+      main: formatLabel(subfolder),
       sub: importEnabled ? "Open subfolder or import its texts" : "Open subfolder",
       active: false,
+      imageSrc: buildFilePath([ROOT_FOLDER, language, subfolder, "img.jpeg"]),
+      imageFallbackSrc: DEFAULT_SUBFOLDER_IMAGE,
       secondaryAction: importEnabled
         ? {
             label: "Import texts",
@@ -1057,6 +1060,27 @@ function renderCards() {
 
     if (card.active) {
       button.classList.add("active");
+    }
+
+    if (card.imageSrc) {
+      const image = document.createElement("img");
+      image.className = "card-cover";
+      image.src = card.imageSrc;
+      image.alt = `${card.main} cover`;
+      image.loading = "lazy";
+      image.decoding = "async";
+
+      if (card.imageFallbackSrc) {
+        image.addEventListener("error", () => {
+          if (image.dataset.fallbackApplied === "1") {
+            return;
+          }
+          image.dataset.fallbackApplied = "1";
+          image.src = card.imageFallbackSrc;
+        });
+      }
+
+      button.appendChild(image);
     }
 
     const main = document.createElement("span");

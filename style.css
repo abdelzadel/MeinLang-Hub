@@ -166,6 +166,9 @@ input[type="text"] {
 }
 
 .card-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: #fff;
@@ -175,6 +178,16 @@ input[type="text"] {
   font: inherit;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.card-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #dbe4ef;
+  background: #eef3f9;
+  display: block;
 }
 
 .card-item:hover {
