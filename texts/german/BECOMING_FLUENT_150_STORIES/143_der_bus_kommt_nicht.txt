@@ -1,3 +1,19 @@
 143. Der Bus kommt nicht
 
-Seit einer Stunde warte ich auf den Bus, aber der Bus kommt nicht. Eigentlich sollte er schon vor zehn (10) Minuten an der Haltestelle sein. Ich schaue noch einmal auf den Fahrplan. Auf dem Fahrplan stehen viele Zeiten und Busse. Ich suche noch einmal nach meinem Bus. Da ist er! Ich habe keinen Fehler gemacht. Mein Bus steht auf dem Fahrplan. Aus dem Bahnhof kommt ein Mann. Er sieht wichtig aus. "Warten sie auf den R7?", will er wissen. "Ja, ich muss nach Karlsruhe. Wissen sie, ob der Bus noch kommt? Ich habe einen wichtigen Termin.", sage ich. Der Mann schüttelt seinen Kopf. "Nein, der R7 kommt heute nicht mehr." Er zeigt auf den Fahrplan und sagt: "Das ist noch der alte Fahrplan. Ich habe den neuen noch nicht aufgehängt. Im Bahnhof hängt der richtige Plan, da können sie nach ihrem Bus suchen." Ich gehe mit dem Mann in den Bahnhof. Im Bahnhof sind viele Menschen, aber die meisten wollen Zug fahren. "Dort drüben hängt der neue Plan", sagt der Mann. Ich gehe zum neuen Plan und schaue ihn mir an. Der nächste Bus nach Karlsruhe fährt erst in zwei Stunden. Das ist schlecht. Mein Termin ist schon in einer Stunden. Ich will nicht mit dem Taxi fahren, weil das teuer ist. Ich gehe wieder zu dem Mann. "Kann man mit dem Zug nach Karlsruhe fahren?", frage ich. "Nein, von hier aus leider nicht. Sie können das Taxi nehmen, oder mit dem R8 in die nächste Stadt fahren. Dort können sie den Zug nehmen", sagt er. Ich gehe zum Plan und suche nach dem Bus. Er fährt in einer Stunde ab. Das ist nicht schnell genug. Ich gehe aus dem Bahnhof, und steige in ein Taxi. Wenn es nicht anders geht, dann muss ich ein Taxi nehmen. Der Termin ist wichtig.
+Seit einer Stunde warte ich auf den Bus, aber der Bus kommt nicht. Eigentlich sollte er schon vor zehn (10) Minuten an der Haltestelle sein. Ich schaue noch einmal auf den Fahrplan. Auf dem Fahrplan stehen viele Zeiten und Busse.
+
+Ich suche noch einmal nach meinem Bus. Da ist er! Ich habe keinen Fehler gemacht. Mein Bus steht auf dem Fahrplan.
+
+Aus dem Bahnhof kommt ein Mann. Er sieht wichtig aus. "Warten sie auf den R7?", will er wissen. "Ja, ich muss nach Karlsruhe.
+
+Wissen sie, ob der Bus noch kommt? Ich habe einen wichtigen Termin.", sage ich. Der Mann schüttelt seinen Kopf. "Nein, der R7 kommt heute nicht mehr." Er zeigt auf den Fahrplan und sagt: "Das ist noch der alte Fahrplan.
+
+Ich habe den neuen noch nicht aufgehängt. Im Bahnhof hängt der richtige Plan, da können sie nach ihrem Bus suchen." Ich gehe mit dem Mann in den Bahnhof. Im Bahnhof sind viele Menschen, aber die meisten wollen Zug fahren. "Dort drüben hängt der neue Plan", sagt der Mann.
+
+Ich gehe zum neuen Plan und schaue ihn mir an. Der nächste Bus nach Karlsruhe fährt erst in zwei Stunden. Das ist schlecht. Mein Termin ist schon in einer Stunden.
+
+Ich will nicht mit dem Taxi fahren, weil das teuer ist. Ich gehe wieder zu dem Mann. "Kann man mit dem Zug nach Karlsruhe fahren?", frage ich. "Nein, von hier aus leider nicht.
+
+Sie können das Taxi nehmen, oder mit dem R8 in die nächste Stadt fahren. Dort können sie den Zug nehmen", sagt er. Ich gehe zum Plan und suche nach dem Bus. Er fährt in einer Stunde ab.
+
+Das ist nicht schnell genug. Ich gehe aus dem Bahnhof, und steige in ein Taxi. Wenn es nicht anders geht, dann muss ich ein Taxi nehmen. Der Termin ist wichtig.

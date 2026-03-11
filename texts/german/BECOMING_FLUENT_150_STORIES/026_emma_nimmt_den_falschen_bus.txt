@@ -1,3 +1,13 @@
 26. Emma nimmt den falschen Bus
 
-Emma ist zu spät und sie weiß nicht, welchen Bus sie nehmen muss. Sie nimmt den ersten Bus, der kommt. Emma ist in die falsche Richtung gefahren. Als sie es bemerkt, steigt sie aus. Sie fragt einen Mann, nach dem richtigen Bus. "Entschuldigen sie bitte, ich habe den falschen Bus genommen. Können sie mir bitte sagen, welchen Bus ich nehmen muss? Ich muss zur Universität. "Der Mann denkt kurz nach. Er geht zu einem Schild. Auf dem Schild ist der Fahrplan. Er sagt: "Der nächste Bus zur Universität fährt in fünf (5) Minuten. Es ist der Bus einhundertfünf (105)." Emma ist froh, dass der Mann ihr helfen kann. "Vielen Dank, wissen sie wie lange es dauert, bis der Bus an der Universität ankommt?", will Emma wissen. "Nein tut mir leid, das müssen sie den Busfahrer fragen. Der wird es wissen.", antwortet der Mann. Der Bus kommt an und Emma steigt ein. "Wann kommen wir an der Universität an?", fragt Emma den Busfahrer. Wir fahren zwanzig (20) Minuten bis zur Universität", antwortet er. "Danke schön", sagt Emma. "Kein Problem, gute Fahrt", wünscht der Busfahrer.
+Emma ist zu spät und sie weiß nicht, welchen Bus sie nehmen muss. Sie nimmt den ersten Bus, der kommt. Emma ist in die falsche Richtung gefahren. Als sie es bemerkt, steigt sie aus.
+
+Sie fragt einen Mann, nach dem richtigen Bus. "Entschuldigen sie bitte, ich habe den falschen Bus genommen. Können sie mir bitte sagen, welchen Bus ich nehmen muss? Ich muss zur Universität.
+
+"Der Mann denkt kurz nach. Er geht zu einem Schild. Auf dem Schild ist der Fahrplan. Er sagt: "Der nächste Bus zur Universität fährt in fünf (5) Minuten.
+
+Es ist der Bus einhundertfünf (105)." Emma ist froh, dass der Mann ihr helfen kann. "Vielen Dank, wissen sie wie lange es dauert, bis der Bus an der Universität ankommt?", will Emma wissen. "Nein tut mir leid, das müssen sie den Busfahrer fragen. Der wird es wissen.", antwortet der Mann.
+
+Der Bus kommt an und Emma steigt ein. "Wann kommen wir an der Universität an?", fragt Emma den Busfahrer. Wir fahren zwanzig (20) Minuten bis zur Universität", antwortet er. "Danke schön", sagt Emma.
+
+"Kein Problem, gute Fahrt", wünscht der Busfahrer.

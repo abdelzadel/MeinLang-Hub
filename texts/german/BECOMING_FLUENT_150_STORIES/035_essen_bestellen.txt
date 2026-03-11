@@ -1,3 +1,7 @@
 35. Essen bestellen
 
-"Hallo, ist da der Pizzaservice?", frage ich. "Ja, wie kann ich ihnen helfen?", antwortet der Mann. "Ich würde gerne eine Salamipizza bestellen", sage ich. "Groß, mittel oder klein?", will der Mann wissen. "Wie groß ist groß und wie groß ist mittel?", frage ich. "Groß sind zweiunddreißig (32) Zentimeter, mittel sind fünfundzwanzig (25) Zentimeter.", beantwortet der Mann meine Frage."Kann ich bitte extra Käse haben?", frage ich. "Natürlich, kein Problem, aber das kostet einen Euro mehr", sagt der Mann. "Alles klar, ich hätte gerne eine große Salamipizza, mit extra Käse. Wie lange dauert es?", sage ich. "Wie ist ihre Adresse?", will der Mann wissen. Ich sage ihm meine Adresse und er erklärt, dass das Liefern vierzig (40) Minuten dauert. Ich bedanke mich und beende den Anruf.
+"Hallo, ist da der Pizzaservice?", frage ich. "Ja, wie kann ich ihnen helfen?", antwortet der Mann. "Ich würde gerne eine Salamipizza bestellen", sage ich. "Groß, mittel oder klein?", will der Mann wissen.
+
+"Wie groß ist groß und wie groß ist mittel?", frage ich. "Groß sind zweiunddreißig (32) Zentimeter, mittel sind fünfundzwanzig (25) Zentimeter.", beantwortet der Mann meine Frage."Kann ich bitte extra Käse haben?", frage ich. "Natürlich, kein Problem, aber das kostet einen Euro mehr", sagt der Mann. "Alles klar, ich hätte gerne eine große Salamipizza, mit extra Käse.
+
+Wie lange dauert es?", sage ich. "Wie ist ihre Adresse?", will der Mann wissen. Ich sage ihm meine Adresse und er erklärt, dass das Liefern vierzig (40) Minuten dauert. Ich bedanke mich und beende den Anruf.

@@ -22,7 +22,14 @@ try:
 except ImportError as exc:
     raise SystemExit("Missing dependency 'ftfy'. Install it with: python3 -m pip install ftfy") from exc
 
+try:
+    from syntok import segmenter
+except ImportError as exc:
+    raise SystemExit("Missing dependency 'syntok'. Install it with: python3 -m pip install syntok") from exc
+
 STORY_HEADER_RE = re.compile(r"^\s*(\d{1,3})\.\s+(.+?)\s*$")
+MAX_SENTENCES_PER_PARAGRAPH = 4
+MAX_CHARS_PER_PARAGRAPH = 520
 
 
 def normalize_line(raw_line: str) -> str:
@@ -87,6 +94,58 @@ def join_wrapped_lines(lines: list[str]) -> str:
     return joined
 
 
+def sentence_to_text(tokens: list[object]) -> str:
+    parts = []
+    for token in tokens:
+        spacing = getattr(token, "spacing", "")
+        value = getattr(token, "value", "")
+        parts.append(f"{spacing}{value}")
+    return "".join(parts).strip()
+
+
+def chunk_sentences(sentences: list[str]) -> list[str]:
+    paragraphs: list[str] = []
+    current: list[str] = []
+    current_length = 0
+
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+
+        next_length = current_length + (1 if current else 0) + len(sentence)
+        limit_hit = (
+            len(current) >= MAX_SENTENCES_PER_PARAGRAPH
+            or (current and next_length > MAX_CHARS_PER_PARAGRAPH)
+        )
+
+        if limit_hit:
+            paragraphs.append(" ".join(current))
+            current = [sentence]
+            current_length = len(sentence)
+            continue
+
+        current.append(sentence)
+        current_length = next_length
+
+    if current:
+        paragraphs.append(" ".join(current))
+
+    return paragraphs
+
+
+def syntok_paragraphs(text: str) -> list[str]:
+    if not text.strip():
+        return []
+
+    result: list[str] = []
+    for paragraph in segmenter.process(text):
+        sentences = [sentence_to_text(sentence) for sentence in paragraph]
+        result.extend(chunk_sentences(sentences))
+
+    return [fix_text(p.strip()) for p in result if p.strip()]
+
+
 def format_story_body(lines: list[str]) -> str:
     clipped = collapse_blank_lines(truncate_at_fragen(lines))
     paragraphs: list[str] = []
@@ -97,7 +156,7 @@ def format_story_body(lines: list[str]) -> str:
             if chunk:
                 paragraph = join_wrapped_lines(chunk)
                 if paragraph:
-                    paragraphs.append(fix_text(paragraph))
+                    paragraphs.append(paragraph)
                 chunk = []
             continue
         chunk.append(line)
@@ -105,9 +164,10 @@ def format_story_body(lines: list[str]) -> str:
     if chunk:
         paragraph = join_wrapped_lines(chunk)
         if paragraph:
-            paragraphs.append(fix_text(paragraph))
+            paragraphs.append(paragraph)
 
-    return "\n\n".join(paragraphs).strip()
+    merged_text = "\n\n".join(paragraphs).strip()
+    return "\n\n".join(syntok_paragraphs(merged_text)).strip()
 
 
 def extract_stories(pdf_path: Path) -> OrderedDict[int, dict[str, object]]:
