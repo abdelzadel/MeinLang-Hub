@@ -678,6 +678,8 @@ function setupImportModal() {
   importAuthFields.hidden = !importConfig.authRequired;
   importEmail.required = importConfig.authRequired;
   importPassword.required = importConfig.authRequired;
+  importTagInput.readOnly = true;
+  importTagInput.setAttribute("aria-readonly", "true");
 
   importCancelButton.addEventListener("click", closeImportModal);
   importCloseButton.addEventListener("click", closeImportModal);
@@ -773,7 +775,8 @@ async function submitImportFromModal(event) {
 
   try {
     const { language, subfolder } = activeImportTarget;
-    const tagValue = String(importTagInput.value || "").trim() || buildDefaultImportTag(subfolder);
+    const tagValue = buildDefaultImportTag(subfolder);
+    importTagInput.value = tagValue;
     const entries = await readDirectory([ROOT_FOLDER, language, subfolder]);
     const fileNames = entries
       .filter((entry) => !entry.isDirectory && entry.name.toLowerCase().endsWith(".txt"))
