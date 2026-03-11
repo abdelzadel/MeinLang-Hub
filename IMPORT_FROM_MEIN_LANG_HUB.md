@@ -8,11 +8,12 @@ Open Mein Lang Hub with these query params:
 
 - `importApiEndpoint` (required): API endpoint that receives multipart uploads
 - `importAuthRequired` (optional): `true` or `false` (default: `true`)
+- `importRedirectUrl` (optional): URL to redirect to after a successful import
 
 Example:
 
 ```text
-https://abdelzadel.github.io/MeinLang-Hub/?importApiEndpoint=https%3A%2F%2Fyour-app.com%2Fapp%2Fapi%2Fexternal-import%2Ftexts&importAuthRequired=true
+https://abdelzadel.github.io/MeinLang-Hub/?importApiEndpoint=https%3A%2F%2Fyour-app.com%2Fapp%2Fapi%2Fexternal-import%2Ftexts&importAuthRequired=true&importRedirectUrl=https%3A%2F%2Fyour-app.com%2Fafter-import
 ```
 
 If `importApiEndpoint` is missing, subfolder import buttons are hidden/disabled.
@@ -24,7 +25,7 @@ If `importApiEndpoint` is missing, subfolder import buttons are hidden/disabled.
 3. On each subfolder card, user clicks **Import texts**.
 4. A popup appears with:
    - Email + password fields (if `importAuthRequired=true`)
-   - Tag field (prefilled with selected subfolder name, editable)
+   - Tag field (locked to selected subfolder name)
    - Terms and conditions checkbox (required)
    - Submit button
 5. On submit, a loader is shown while uploading.
@@ -40,7 +41,7 @@ Fields sent:
 - `password` (when auth is required)
 - `language` (selected language, formatted)
 - `subfolder` (selected subfolder path)
-- `tag` (from `importTag` param or auto-generated)
+- `tag` (single tag, always the selected subfolder name)
 - `files` (one part per `.txt` file in that subfolder)
 
 Equivalent curl shape:
@@ -51,10 +52,14 @@ curl -X POST "{api end point}" \
   -F "password=your_password" \
   -F "language=French" \
   -F "subfolder=news/a1" \
-  -F "tag=A1,News" \
+  -F "tag=news/a1" \
   -F "files=@/absolute/path/article1.txt" \
   -F "files=@/absolute/path/article2.txt"
 ```
+
+If `importRedirectUrl` is provided, the hub redirects there after a successful import and appends:
+
+- `importedFolder` = selected subfolder name
 
 ## 4) Endpoint used in `/Users/mac/Desktop/coding/reading`
 

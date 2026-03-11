@@ -857,12 +857,28 @@ async function submitImportFromModal(event) {
       summary.push(`${skippedUnreadableCount} unreadable/empty file(s) were skipped.`);
     }
 
-    setImportStatus(summary.join(" "), "success");
+    const successMessage = summary.join(" ");
+    setImportStatus(successMessage, "success");
+
+    if (importConfig.redirectUrl) {
+      redirectAfterImport(subfolder);
+      return;
+    }
   } catch (error) {
     setImportStatus(error.message || "Import failed.", "error");
   } finally {
     setImportLoading(false);
   }
+}
+
+function redirectAfterImport(subfolder) {
+  if (!importConfig.redirectUrl) {
+    return;
+  }
+
+  const targetUrl = new URL(importConfig.redirectUrl, window.location.href);
+  targetUrl.searchParams.set("importedFolder", String(subfolder || "").trim());
+  window.location.assign(targetUrl.toString());
 }
 
 async function uploadImportBatch({
@@ -948,10 +964,12 @@ function getImportConfigFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const endpointRaw = params.get("importApiEndpoint") || params.get("apiEndpoint") || "";
   const authRaw = params.get("importAuthRequired") ?? params.get("authRequired");
+  const redirectRaw = params.get("importRedirectUrl") || params.get("redirectUrl") || "";
 
   return {
     endpoint: normalizeEndpoint(endpointRaw),
     authRequired: parseBooleanParam(authRaw, true),
+    redirectUrl: normalizeEndpoint(redirectRaw),
   };
 }
 
