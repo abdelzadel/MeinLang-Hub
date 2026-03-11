@@ -1094,6 +1094,7 @@ function renderCards() {
     }
 
     const label = document.createElement("span");
+    label.className = "card-label";
     label.textContent = card.main;
     main.appendChild(label);
 
